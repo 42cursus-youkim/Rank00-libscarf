@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/06 17:47:33 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/07 19:05:29 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@
 NAME     := libft.a
 
 CC       := gcc
-CFLAGS   := -Wall -Wextra -Werror \
-			# -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address" -g
+CFLAGS   := -Wall -Wextra -Werror -g\
+			# -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address"
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes \
-			--suppressions=./macos.supp
+			# --suppressions=./macos.supp
 AR       := ar -rcs
 RM       := rm -f
 
@@ -28,7 +28,7 @@ INC      := -I includes/
 HGEN     := python3 ../hgen/src/run.py #hgen
 
 # ===== Packages =====
-PKGS     := math string system dict #linked
+PKGS     := math string system dict linked
 
 mathV  := \
 	func_ymath new_yitoa
@@ -47,7 +47,8 @@ dictV    := \
 	ycharmap
 
 linkedV  := \
-	new_ylist func_ylist
+	alloc_ydeque func_ydeque				\
+	new_ylist func_ylist #mod_ydeque		\
 #new_ydeque
 
 # ===== Macros =====

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 09:22:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/07 17:32:53 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/07 18:28:47 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,13 @@ typedef struct s_list
 typedef struct s_dequenode
 {
 	int					num;
-	struct s_dequenode	*left;
-	struct s_dequenode	*right;
+	struct s_dequenode	*upper;
+	struct s_dequenode	*lower;
 }	t_dequenode;
 
+/*	head: uppermost
+	tail: lowermost
+*/
 typedef struct s_deque
 {
 	int			size;
@@ -37,15 +40,22 @@ typedef struct s_deque
 
 //	@func
 /*
+** < alloc_ydeque.c > */
+
+t_dequenode	*new_ydequenode(int num);
+t_deque		*new_ydeque(int size, int nums[]);
+void		del_ydequenode(t_dequenode *node);
+void		ydeque_visualize(t_deque *deque);
+/*
+** < func_ydeque.c > */
+
+void		ydeque_push(t_deque *deque, t_dequenode *new);
+void		ydeque_pop(t_deque *deque);
+/*
 ** < func_ylist.c > */
 
 int			ylistlen(t_list *lst);
 t_list		*ylistindex(t_list *lst, int index);
-/*
-** < new_ydeque.c > */
-
-t_dequenode	*new_ydequenode(int num);
-t_deque		*new_ydeque(int size, int nums[]);
 /*
 ** < new_ylist.c > */
 
