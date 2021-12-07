@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 12:50:57 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:28:41 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/06 14:23:29 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,18 @@ void	*ycalloc(int count, int size)
 {
 	void	*ptr;
 
-	ptr = malloc(size * count);
-	if (ptr)
-		ybzero(ptr, size * count);
+	ptr = ymalloc(size * count);
+	ybzero(ptr, size * count);
+	return (ptr);
+}
+
+//	identical to malloc but exits program if allocation fails
+void	*ymalloc(size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(size);
+	if (!ptr)
+		yerror("ymalloc", "failed to allocate memory");
 	return (ptr);
 }

@@ -6,14 +6,14 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 17:33:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/29 20:18:02 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/07 17:32:53 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef YSTRING_H
 # define YSTRING_H
 
-//	===== @Functions =====
+//	@func
 /*
 ** < del_ystr.c > */
 

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 09:22:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 12:30:22 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/07 17:32:53 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ typedef struct s_deque
 	t_dequenode	*tail;
 }	t_deque;
 
-//	===== @Functions =====
+//	@func
 /*
 ** < func_ylist.c > */
 

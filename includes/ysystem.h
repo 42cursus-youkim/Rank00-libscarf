@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:19:14 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 21:44:59 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/07 17:32:53 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 
 # define BUFFER_SIZE 20
 # define OPEN_MAX 128
-//	===== @Functions =====
+//	@func
 /*
 ** < yalloc.c > */
 
 void	*ymemset(void *b, int c, int len);
 void	ybzero(void *s, int n);
 void	*ycalloc(int count, int size);
+void	*ymalloc(size_t size);
 /*
 ** < yexit.c > */
 

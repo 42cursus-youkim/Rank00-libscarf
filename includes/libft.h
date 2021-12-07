@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:55:22 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 11:23:55 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/07 17:32:53 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 
 	[comments]
 		entry: ===== TEXT ===== ("=" x5)
-		prototypes: ===== @Functions =====
+		prototypes: @func
 					used as identifier in hgen
 	[doc scopes]
 		header: [TEXT]

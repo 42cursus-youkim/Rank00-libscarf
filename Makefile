@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/03 12:54:54 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/06 17:47:33 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,10 @@ RM       := rm -f
 PRE      := src/
 INC      := -I includes/
 
+HGEN     := python3 ../hgen/src/run.py #hgen
+
 # ===== Packages =====
-PKGS     := string system dict math #linked
+PKGS     := math string system dict #linked
 
 mathV  := \
 	func_ymath new_yitoa
@@ -91,7 +93,7 @@ docs:
 	@echo "$(G)<Generating Documentation...>$(E)"
 	@set -e;\
 		for p in $(PKGS); do\
-			../../hgen/run.py "" includes/y$$p.h src/y$$p;\
+			$(HGEN) -I includes/y$$p.h src/y$$p;\
 		done
 	@echo "$(G)<Updated Docs>$(E)"
 
