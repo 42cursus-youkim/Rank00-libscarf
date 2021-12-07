@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:45:54 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 19:53:46 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/07 17:39:22 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ t_list	*new_ylist(void *content)
 {
 	t_list	*lst;
 
-	lst = malloc(sizeof(t_list));
-	if (!lst)
-		return (NULL);
+	lst = ymalloc(sizeof(t_list));
 	lst->content = content;
 	lst->next = NULL;
 	return (lst);

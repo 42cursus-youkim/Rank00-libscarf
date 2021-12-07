@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 20:16:46 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 12:39:00 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/07 17:39:28 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,7 @@ char	**new_ysplit(char const *s, char c)
 	if (!s)
 		return (NULL);
 	words = count_words(s, c);
-	strarr = malloc((words + 1) * sizeof(char *));
-	if (!strarr)
-		return (NULL);
+	strarr = ymalloc((words + 1) * sizeof(char *));
 	strarr[words] = NULL;
 	return (write_words(strarr, words, s, c));
 }

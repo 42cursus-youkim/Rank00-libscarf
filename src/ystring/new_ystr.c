@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:26:06 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 20:21:35 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/07 17:39:38 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,7 @@ char	*new_ystrm(int length)
 
 	if (length < 0)
 		return (NULL);
-	str = malloc((length + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
+	str = ymalloc((length + 1) * sizeof(char));
 	str[length] = '\0';
 	return (str);
 }

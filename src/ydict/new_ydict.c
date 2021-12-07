@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:23:42 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 15:35:08 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/07 17:39:10 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ t_dictitem	*new_ydictitem(const char *key, void *value)
 {
 	t_dictitem	*item;
 
-	item = malloc(sizeof(t_dictitem));
-	if (!item)
-		return (NULL);
+	item = ymalloc(sizeof(t_dictitem));
 	item->key = new_ystr(key);
 	item->value = value;
 	return (item);
@@ -58,9 +56,7 @@ t_dict	*new_ydict(t_destructor_f del_value)
 {
 	t_dict	*dict;
 
-	dict = malloc(sizeof(t_dict));
-	if (!dict)
-		return (NULL);
+	dict = ymalloc(sizeof(t_dict));
 	ydict_setup(dict, del_value);
 	if (dict->items)
 		return (dict);
