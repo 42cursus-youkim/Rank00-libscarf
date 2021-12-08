@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:47:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/08 13:23:33 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/08 13:44:22 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ t_deque	*new_ydeque(int size, int nums[])
 	if (size < 1)
 		yerror("new_ydeque", "size is less than 1");
 	deque = ymalloc(sizeof(t_deque));
+	deque->head = NULL;
+	deque->tail = NULL;
 	deque->size = 0;
 	while (--size >= 0)
 		ydeque_push(deque, new_ydequenode(nums[size]));
@@ -43,25 +45,30 @@ t_deque	*new_ydeque(int size, int nums[])
 
 void	del_ydequenode(t_dequenode *node)
 {
-	printf("freed node with num: %d\n", node->num);
+	printf("free node num: %d uppr: %p lower: %p\n", node->num, node->upper, node->lower);
 	node->lower = NULL;
 	node->upper = NULL;
 	free(node);
 }
 
-// void	del_ydeque(t_deque *deque)
-// {
-// 	t_dequenode	*curs;
+void	del_ydeque(t_deque *deque)
+{
+	t_dequenode	*curs;
+	t_dequenode	*temp;
 
-// 	if (!deque)
-// 		yerror("del_ydeque", "deque is NULL");
-// 	curs = deque->head;
-// 	while (curs->head != NULL)
-// 	{
-// 		curs = deque->head;
-// 	}
-// 	free(deque);
-// }
+	if (!deque)
+		yerror("del_ydeque", "deque is NULL");
+	curs = deque->head;
+	while (--deque->size >= 0)
+	{
+		temp = curs;
+		curs = curs->lower;
+		free(temp);
+		// printf("curs:%d\n", curs->num);
+		// del_ydequenode(temp);
+	}
+	free(deque);
+}
 
 void	ydeque_visualize(t_deque *deque)
 {
