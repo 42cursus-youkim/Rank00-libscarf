@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:47:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/08 13:44:22 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/08 13:54:12 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ t_deque	*new_ydeque(int size, int nums[])
 {
 	t_deque	*deque;
 
-	if (size < 1)
-		yerror("new_ydeque", "size is less than 1");
 	deque = ymalloc(sizeof(t_deque));
 	deque->head = NULL;
 	deque->tail = NULL;
@@ -41,14 +39,6 @@ t_deque	*new_ydeque(int size, int nums[])
 	while (--size >= 0)
 		ydeque_push(deque, new_ydequenode(nums[size]));
 	return (deque);
-}
-
-void	del_ydequenode(t_dequenode *node)
-{
-	printf("free node num: %d uppr: %p lower: %p\n", node->num, node->upper, node->lower);
-	node->lower = NULL;
-	node->upper = NULL;
-	free(node);
 }
 
 void	del_ydeque(t_deque *deque)
@@ -64,12 +54,11 @@ void	del_ydeque(t_deque *deque)
 		temp = curs;
 		curs = curs->lower;
 		free(temp);
-		// printf("curs:%d\n", curs->num);
-		// del_ydequenode(temp);
 	}
 	free(deque);
 }
 
+//	NOTE: uses printf
 void	ydeque_visualize(t_deque *deque)
 {
 	int			i;

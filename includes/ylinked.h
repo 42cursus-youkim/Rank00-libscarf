@@ -44,14 +44,15 @@ typedef struct s_deque
 
 t_dequenode	*new_ydequenode(int num);
 t_deque		*new_ydeque(int size, int nums[]);
-void		del_ydequenode(t_dequenode *node);
 void		del_ydeque(t_deque *deque);
 void		ydeque_visualize(t_deque *deque);
 /*
 ** < func_ydeque.c > */
 
 void		ydeque_push(t_deque *deque, t_dequenode *new);
+void		ydeque_push_back(t_deque *deque, t_dequenode *new);
 t_dequenode	*ydeque_pop(t_deque *deque);
+t_dequenode	*ydeque_pop_back(t_deque *deque);
 /*
 ** < func_ylist.c > */
 
