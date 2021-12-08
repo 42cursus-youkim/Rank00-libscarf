@@ -71,7 +71,7 @@ OBJ      := $(SRC:%.c=%.o)
 
 $(NAME): $(OBJ)
 	@echo "$(V)<Archiving Object files...>$(E)"
-	@$(AR) $@ $(OBJ)
+	@$(AR) $@ $^
 	@echo "$(G)<<$(NAME)>>$(E)"
 
 all: $(NAME)
