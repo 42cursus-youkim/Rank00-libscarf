@@ -50,7 +50,7 @@ void		ydeque_visualize(t_deque *deque);
 ** < func_ydeque.c > */
 
 void		ydeque_push(t_deque *deque, t_dequenode *new);
-void		ydeque_pop(t_deque *deque);
+t_dequenode	*ydeque_pop(t_deque *deque);
 /*
 ** < func_ylist.c > */
 

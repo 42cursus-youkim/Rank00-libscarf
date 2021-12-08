@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:47:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/07 19:10:09 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/08 13:23:33 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ t_dequenode	*new_ydequenode(int num)
 }
 
 /*	create new double-linked list with head and tail.
-	first argument goes to head(top)!
-	TODO: tail
+	locating beginning and end of list is done by size,
+	since they're endless loop.
+	first argument goes to head(top), last to tail(bottom)!
 */
 t_deque	*new_ydeque(int size, int nums[])
 {
@@ -70,12 +71,11 @@ void	ydeque_visualize(t_deque *deque)
 	if (!deque)
 		yerror("ydeque_print", "deque is NULL");
 	printf("deque size: %d\n", deque->size);
-	i = 0;
+	i = deque->size;
 	curs = deque->head;
-	while (curs->lower)
+	while (--i >= 0)
 	{
-		printf("%d: %d\n", i++, curs->num);
+		printf("%d: %d\n", i + 1, curs->num);
 		curs = curs->lower;
 	}
-	printf("%d: %d\n", i, curs->num);
 }

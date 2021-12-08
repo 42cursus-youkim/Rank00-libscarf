@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:00:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/07 19:11:33 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/08 13:28:37 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //	push new node to uppermost
 void	ydeque_push(t_deque *deque, t_dequenode *new)
 {
-	if (!new)
+	if (new == NULL)
 		yerror("ydeque_push", "node trying to push does not exsist");
 	if (deque->head == NULL)
 	{
@@ -33,16 +33,19 @@ void	ydeque_push(t_deque *deque, t_dequenode *new)
 	deque->size++;
 }
 
-//	pop uppermost node and returns pointer to it
-void	ydeque_pop(t_deque *deque)
+//	pop uppermost node, returns pointer to it
+t_dequenode	*ydeque_pop(t_deque *deque)
 {
 	t_dequenode	*curs;
 
 	if (deque->size == 0)
 		yerror("ydeque_pop", "deque is empty");
 	curs = deque->head;
-	deque->head = curs->upper;
-	deque->head->lower = NULL;
+	deque->head = curs->lower;
+	curs->lower = NULL;
+	curs->upper = NULL;
+	deque->head->upper = deque->tail;
+	deque->tail->lower = deque->head;
 	deque->size--;
-	free(curs);
+	return (curs);
 }
