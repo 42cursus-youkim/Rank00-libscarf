@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:55:22 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/11 18:12:32 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/11 19:10:36 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef enum e_status
 {
 	SUCCESS = 0,
 	ERROR = -1,
+	UNSET = -1,
 }	t_status;
 
 /*	===== Documentations =====

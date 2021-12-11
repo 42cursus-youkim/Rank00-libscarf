@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:00:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/08 13:53:00 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/11 19:02:31 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,20 @@ t_dequenode	*ydeque_pop(t_deque *deque)
 	if (deque->size == 0)
 		yerror("ydeque_pop", "deque is empty");
 	curs = deque->head;
-	deque->head = curs->lower;
-	deque->head->upper = deque->tail;
-	deque->tail->lower = deque->head;
-	deque->size--;
+	if (deque->size == 1)
+	{
+		deque->head = NULL;
+		deque->tail = NULL;
+	}
+	else
+	{
+		deque->head = deque->head->lower;
+		deque->head->upper = deque->tail;
+		deque->tail->lower = deque->head;
+	}
 	curs->lower = NULL;
 	curs->upper = NULL;
+	deque->size--;
 	return (curs);
 }
 
@@ -77,11 +85,19 @@ t_dequenode	*ydeque_pop_back(t_deque *deque)
 	if (deque->size == 0)
 		yerror("ydeque_pop_back", "deque is empty");
 	curs = deque->tail;
-	deque->tail = curs->upper;
-	deque->head->upper = deque->tail;
-	deque->tail->lower = deque->head;
-	deque->size--;
+	if (deque->size == 1)
+	{
+		deque->head = NULL;
+		deque->tail = NULL;
+	}
+	else
+	{
+		deque->tail = deque->tail->upper;
+		deque->head->upper = deque->tail;
+		deque->tail->lower = deque->head;
+	}
 	curs->upper = NULL;
 	curs->lower = NULL;
+	deque->size--;
 	return (curs);
 }
