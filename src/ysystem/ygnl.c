@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:12:37 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 13:06:51 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/11 17:58:32 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ static char	*result(char **backup, int read_length)
 */
 char	*yreadline(int fd)
 {
-	char		buf[BUFFER_SIZE + 1];
-	static char	*backup[OPEN_MAX];
 	int			nl_idx;
 	int			read_length;
+	char		buf[BUFFER_SIZE + 1];
+	static char	*backup[OPEN_MAX];
 
 	read_length = 0;
 	if (!backup[fd])

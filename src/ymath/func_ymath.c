@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:46:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 13:37:21 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/11 17:42:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,12 @@ int	yrand(void)
 
 	r = (r * 1103515245 + 30029) % 479001599;
 	return (r);
+}
+
+int	ymax(int a, int b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
 }

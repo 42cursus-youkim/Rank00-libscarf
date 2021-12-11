@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/08 13:23:06 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/11 17:26:01 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,10 @@ RM       := rm -f
 PRE      := src/
 INC      := -I includes/
 
-HGEN     := python3 ../hgen/src/run.py #hgen
+HGEN     := hgen
 
 # ===== Packages =====
-PKGS     := math string system dict linked
+PKGS     := math string system dict linked utils
 
 mathV  := \
 	func_ymath new_yitoa
@@ -49,6 +49,9 @@ dictV    := \
 linkedV  := \
 	alloc_ydeque func_ydeque				\
 	new_ylist func_ylist #mod_ydeque		\
+
+utilsV   := \
+	func_bool
 #new_ydeque
 
 # ===== Macros =====

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:47:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/08 13:54:12 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/11 16:42:36 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,4 @@ void	del_ydeque(t_deque *deque)
 		free(temp);
 	}
 	free(deque);
-}
-
-//	NOTE: uses printf
-void	ydeque_visualize(t_deque *deque)
-{
-	int			i;
-	t_dequenode	*curs;
-
-	if (!deque)
-		yerror("ydeque_print", "deque is NULL");
-	printf("deque size: %d\n", deque->size);
-	i = deque->size;
-	curs = deque->head;
-	while (--i >= 0)
-	{
-		printf("%d: %d\n", i + 1, curs->num);
-		curs = curs->lower;
-	}
 }

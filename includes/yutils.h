@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ymath.h                                            :+:      :+:    :+:   */
+/*   yutils.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/07 17:32:53 by youkim           ###   ########.fr       */
+/*   Created: 2021/12/11 17:18:40 by youkim            #+#    #+#             */
+/*   Updated: 2021/12/11 17:26:17 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YMATH_H
-# define YMATH_H
+#ifndef YUTILS_H
+# define YUTILS_H
+
+# include <stdbool.h>
 
 //	@func
 /*
-** < func_ymath.c > */
+** < func_bool.c > */
 
-int		ydigits(long long n);
-int		normalized(int n);
-int		yrand(void);
-int		ymax(int a, int b);
-/*
-** < new_yitoa.c > */
-
-char	*new_yitoa(int n);
+bool	yanyi(int value, int i, const int arr[]);
 #endif

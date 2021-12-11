@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ymath.h                                            :+:      :+:    :+:   */
+/*   func_bool.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/07 17:32:53 by youkim           ###   ########.fr       */
+/*   Created: 2021/12/11 17:20:00 by youkim            #+#    #+#             */
+/*   Updated: 2021/12/11 17:26:20 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YMATH_H
-# define YMATH_H
+#include "libft.h"
 
-//	@func
-/*
-** < func_ymath.c > */
-
-int		ydigits(long long n);
-int		normalized(int n);
-int		yrand(void);
-int		ymax(int a, int b);
-/*
-** < new_yitoa.c > */
-
-char	*new_yitoa(int n);
-#endif
+/*	returns true if value matches any of the values in the list
+	usage: yany(value, 4, (int []){1, 2, 3, 4})
+*/
+bool	yanyi(int value, int i, const int arr[])
+{
+	if (i <= 0)
+		yerror("yany", "i must be greater than 0");
+	while (arr[--i])
+		if (value == arr[i])
+			return (true);
+	return (false);
+}

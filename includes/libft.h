@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:55:22 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/07 17:32:53 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/11 17:48:54 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,11 @@
 # include "colors.h"
 
 //	===== Marcos & Enums =====
-# define SUCCESS 0
-# define ERROR -1
+typedef enum e_status
+{
+	SUCCESS = 0,
+	ERROR = -1,
+}	t_status;
 
 /*	===== Documentations =====
 	refactored libft by @youkim

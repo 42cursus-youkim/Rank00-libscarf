@@ -45,7 +45,6 @@ typedef struct s_deque
 t_dequenode	*new_ydequenode(int num);
 t_deque		*new_ydeque(int size, int nums[]);
 void		del_ydeque(t_deque *deque);
-void		ydeque_visualize(t_deque *deque);
 /*
 ** < func_ydeque.c > */
 
