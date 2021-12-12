@@ -6,17 +6,17 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 17:47:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/11 16:42:36 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 15:29:57 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_dequenode	*new_ydequenode(int num)
+t_dnode	*new_ydequenode(int num)
 {
-	t_dequenode	*node;
+	t_dnode	*node;
 
-	node = ymalloc(sizeof(t_dequenode));
+	node = ymalloc(sizeof(t_dnode));
 	node->num = num;
 	node->lower = NULL;
 	node->upper = NULL;
@@ -43,8 +43,8 @@ t_deque	*new_ydeque(int size, int nums[])
 
 void	del_ydeque(t_deque *deque)
 {
-	t_dequenode	*curs;
-	t_dequenode	*temp;
+	t_dnode	*curs;
+	t_dnode	*temp;
 
 	if (!deque)
 		yerror("del_ydeque", "deque is NULL");

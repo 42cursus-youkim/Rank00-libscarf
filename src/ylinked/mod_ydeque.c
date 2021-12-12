@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   func_ydeque.c                                      :+:      :+:    :+:   */
+/*   mod_ydeque.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 18:00:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/11 19:02:31 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 15:24:57 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 //	push new node to uppermost
-void	ydeque_push(t_deque *deque, t_dequenode *new)
+void	ydeque_push(t_deque *deque, t_dnode *new)
 {
 	if (new == NULL)
 		yerror("ydeque_push", "node trying to push does not exsist");
@@ -33,7 +33,7 @@ void	ydeque_push(t_deque *deque, t_dequenode *new)
 	deque->size++;
 }
 
-void	ydeque_push_back(t_deque *deque, t_dequenode *new)
+void	ydeque_push_back(t_deque *deque, t_dnode *new)
 {
 	if (new == NULL)
 		yerror("ydeque_push_back", "node trying to push does not exsist");
@@ -54,9 +54,9 @@ void	ydeque_push_back(t_deque *deque, t_dequenode *new)
 }
 
 //	pop uppermost node, returns pointer to it
-t_dequenode	*ydeque_pop(t_deque *deque)
+t_dnode	*ydeque_pop(t_deque *deque)
 {
-	t_dequenode	*curs;
+	t_dnode	*curs;
 
 	if (deque->size == 0)
 		yerror("ydeque_pop", "deque is empty");
@@ -78,9 +78,9 @@ t_dequenode	*ydeque_pop(t_deque *deque)
 	return (curs);
 }
 
-t_dequenode	*ydeque_pop_back(t_deque *deque)
+t_dnode	*ydeque_pop_back(t_deque *deque)
 {
-	t_dequenode	*curs;
+	t_dnode	*curs;
 
 	if (deque->size == 0)
 		yerror("ydeque_pop_back", "deque is empty");
