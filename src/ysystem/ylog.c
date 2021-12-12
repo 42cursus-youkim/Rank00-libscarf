@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:29:52 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/30 19:50:26 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 14:59:15 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	yerror(char *where, char *err)
 
 int	ycheckerr(int statement, char *err)
 {
-	if (statement == ERROR)
+	if (statement == ERR)
 		yerror("ycheckerr", err);
 	return (statement);
 }

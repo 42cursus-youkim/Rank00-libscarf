@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 21:18:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 18:02:20 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 14:58:44 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ int	ydict_expand(t_dict *dict)
 	t_dictitem	**new_items;
 
 	if (is_capacity_overflow(dict))
-		return (ERROR);
+		return (ERR);
 	new_capacity = dict->capacity * 2;
 	new_items = new_ydictitem_arr(new_capacity);
 	if (!new_items)
-		return (ERROR);
+		return (ERR);
 	ydict_move_items(dict, new_items, new_capacity);
 	dict->capacity = new_capacity;
-	return (SUCCESS);
+	return (OK);
 }

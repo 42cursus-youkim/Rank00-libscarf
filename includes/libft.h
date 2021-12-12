@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:55:22 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/11 19:10:36 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 14:58:37 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 //	===== Marcos & Enums =====
 typedef enum e_status
 {
-	SUCCESS = 0,
-	ERROR = -1,
+	OK = 0,
+	ERR = -1,
 	UNSET = -1,
 }	t_status;
 
@@ -59,9 +59,9 @@ typedef enum e_status
 		array: arr, pointer: ptr, function: fn
 
 	[returns]
-		default: SUCCESS: 0, ERROR: -1
+		default: OK: 0, ERROR: -1
 		bool with 'is_': TRUE: true, FALSE: false
-		string: SUCCESS: non-null value, ERROR: null
+		string: OK: non-null value, ERROR: null
 
 	[prefix]
 		new_: uses MALLOC / dynamic allocation. somewhat c++ style.

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:12:37 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/11 17:58:32 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 14:58:58 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static char	*result(char **backup, int read_length)
 {
 	char	*temp;
 
-	if (read_length == ERROR || ystrlen(*backup) == 0)
+	if (read_length == ERR || ystrlen(*backup) == 0)
 		return (NULL);
 	temp = new_ystr(*backup);
 	ystr_replace(backup, new_ystr(""));
@@ -50,7 +50,7 @@ char	*yreadline(int fd)
 		read_length = yread(fd, buf, BUFFER_SIZE);
 		if (read_length == 0)
 			break ;
-		if (read_length == ERROR)
+		if (read_length == ERR)
 			return (NULL);
 		ystr_append(&backup[fd], buf);
 		nl_idx = ystrchri(backup[fd], '\n');

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:28:41 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 14:58:49 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ydict_set(t_dict *dict, char *key, void *value)
 	if (!is_input_valid(dict, key, value))
 		yerror("ydict_set", "invalid input!");
 	if (is_dict_almostfull(dict))
-		if (ydict_expand(dict) == ERROR)
+		if (ydict_expand(dict) == ERR)
 			return ;
 	id = ydict_getid(dict->capacity, key);
 	if (is_key_vacant(dict, id))

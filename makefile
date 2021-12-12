@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/12 12:54:56 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/12 14:45:35 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS   := -Wall -Wextra -Werror
 DFLAGS	 := -g3 #-DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address"
 VFLAGS   := --leak-check=full --show-leak-kinds=all \
 			--track-origins=yes \
-			# --suppressions=./macos.supp
+			--suppressions=./macos.supp
 AR       := ar -rcs
 RM       := rm -f
 
