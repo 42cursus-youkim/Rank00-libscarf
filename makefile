@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/12 12:36:22 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/12 12:54:56 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,12 +71,12 @@ OBJ      := $(SRC:%.c=%.o)
 # ===== Rules =====
 %.o: %.c
 	@echo "  $(WU)$(<F)$(R) -> $(E)$(@F)"
-	@$(CC) $(CFLAGS) $(DEBUG) $(INC) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c -o $@ $<
 
 $(NAME): $(OBJ)
 	@$(AR) $@ $^
 	@$(call log, V, Archived Object files,\
-		\n\twith flag $(R)$(DEBUG)$(E)$(CFLAGS))
+		\n\twith flag $(R)$(DFLAGS)$(E)$(CFLAGS))
 	@echo "$(G)<<$(NAME)>>$(E)"
 
 all: $(NAME)
@@ -102,9 +102,6 @@ docs:
 			$(HGEN) -I includes/y$$p.h src/y$$p;\
 		done
 	@$(call log, G, Updated Docs)
-
-debug: DEBUG=$(DFLAGS)
-debug: clean all
 
 testdry: docs all
 	@$(call log, Y, Preparing Test,...)
