@@ -6,48 +6,42 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 21:18:19 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/12 14:58:44 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 15:09:38 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static bool	is_newkey_vacant(t_dictitem **new_items, int id)
+static bool	is_newkey_vacant(t_ditem **items_n, int id)
 {
-	return (!new_items[id]);
+	return (!items_n[id]);
 }
 
-static void	ydict_moveprobeditem(
-	t_dictitem **new_items, int id, t_dictitem *item
-)
+static void	ydict_moveprobeditem(t_ditem **items_n, int id, t_ditem *item)
 {
-	new_items[id] = item;
+	items_n[id] = item;
 }
 
-static void	ydict_probenew(
-	t_dictitem **new_items, int new_capacity, int id, t_dictitem *item
-)
+static void	ydict_probenew(t_ditem **items_n, int cap_n, int id, t_ditem *item)
 {
 	int	i;
 
 	i = id;
-	while (++i < new_capacity)
-		if (is_newkey_vacant(new_items, i))
-			return (ydict_moveprobeditem(new_items, i, item));
+	while (++i < cap_n)
+		if (is_newkey_vacant(items_n, i))
+			return (ydict_moveprobeditem(items_n, i, item));
 	i = -1;
 	while (++i < id)
-		if (is_newkey_vacant(new_items, i))
-			return (ydict_moveprobeditem(new_items, i, item));
+		if (is_newkey_vacant(items_n, i))
+			return (ydict_moveprobeditem(items_n, i, item));
 	ywarn("could not move item to new array due to NO SPACE LEFT in new array");
 }
 
-static void	ydict_move_items(
-	t_dict *dict, t_dictitem **new_items, int new_capacity
-)
+static void	ydict_move_items(t_dict *dict, t_ditem **items_n, int cap_n)
 {
-	int			i;
-	int			id;
-	t_dictitem	*item;
+	int		i;
+	int		id;
+	t_ditem	*item;
 
 	i = 0;
 	while (i < dict->capacity)
@@ -55,31 +49,31 @@ static void	ydict_move_items(
 		item = dict->items[i];
 		if (item && item->key)
 		{
-			id = ydict_getid(new_capacity, item->key);
-			if (is_newkey_vacant(new_items, id))
-				new_items[id] = item;
+			id = ydict_getid(cap_n, item->key);
+			if (is_newkey_vacant(items_n, id))
+				items_n[id] = item;
 			else
-				ydict_probenew(new_items, new_capacity, id, item);
+				ydict_probenew(items_n, cap_n, id, item);
 		}
 		i++;
 	}
 	free(dict->items);
-	dict->items = new_items;
+	dict->items = items_n;
 }
 
 //	creates new dictitems, and moves all items to new array with new hash ids
 int	ydict_expand(t_dict *dict)
 {
-	int			new_capacity;
-	t_dictitem	**new_items;
+	int		cap_n;
+	t_ditem	**items_n;
 
 	if (is_capacity_overflow(dict))
 		return (ERR);
-	new_capacity = dict->capacity * 2;
-	new_items = new_ydictitem_arr(new_capacity);
-	if (!new_items)
+	cap_n = dict->capacity * 2;
+	items_n = new_ydictitem_arr(cap_n);
+	if (!items_n)
 		return (ERR);
-	ydict_move_items(dict, new_items, new_capacity);
-	dict->capacity = new_capacity;
+	ydict_move_items(dict, items_n, cap_n);
+	dict->capacity = cap_n;
 	return (OK);
 }

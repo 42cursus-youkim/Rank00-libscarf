@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 15:46:37 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 10:43:24 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 15:23:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	ydict_visualize(t_dict *dict)
 {
 	int			id;
-	t_dictitem	*item;
+	t_ditem		*item;
 
 	id = 0;
 	printf("%sID |%-8s|%-6s(%d/%d)%s\n",

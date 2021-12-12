@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/12 14:58:49 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 15:01:22 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 //	insert new item at empty index of dictionary
 static void	ydict_insert(t_dict *dict, int id, char *key, void *value)
 {
-	t_dictitem	*item;
+	t_ditem	*item;
 
 	item = new_ydictitem(key, value);
 	dict->items[id] = item;

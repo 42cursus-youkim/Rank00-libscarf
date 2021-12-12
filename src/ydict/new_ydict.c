@@ -6,30 +6,30 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:23:42 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/07 17:39:10 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 15:23:35 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 //	creates a new dictonary item, with key and value
-t_dictitem	*new_ydictitem(const char *key, void *value)
+t_ditem	*new_ydictitem(const char *key, void *value)
 {
-	t_dictitem	*item;
+	t_ditem	*item;
 
-	item = ymalloc(sizeof(t_dictitem));
+	item = ymalloc(sizeof(t_ditem));
 	item->key = new_ystr(key);
 	item->value = value;
 	return (item);
 }
 
 //	creates new NULL-set array of items
-t_dictitem	**new_ydictitem_arr(int capacity)
+t_ditem	**new_ydictitem_arr(int capacity)
 {
-	int			id;
-	t_dictitem	**items;
+	int		id;
+	t_ditem	**items;
 
-	items = ycalloc(capacity, sizeof(t_dictitem *));
+	items = ycalloc(capacity, sizeof(t_ditem *));
 	if (!items)
 		return (NULL);
 	id = -1;
@@ -39,7 +39,7 @@ t_dictitem	**new_ydictitem_arr(int capacity)
 }
 
 //	initializes dictionary, NULLs items, saves
-static void	ydict_setup(t_dict *dict, t_destructor_f del_value)
+static void	ydict_setup(t_dict *dict, t_del_f del_value)
 {
 	dict->size = 0;
 	dict->capacity = YDICT_INITIAL_CAPACITY;
@@ -52,7 +52,7 @@ static void	ydict_setup(t_dict *dict, t_destructor_f del_value)
 	(or, it should be able to deconstructed with same del_func pointer)
 	returns NULL if memory allocation fails.
 */
-t_dict	*new_ydict(t_destructor_f del_value)
+t_dict	*new_ydict(t_del_f del_value)
 {
 	t_dict	*dict;
 

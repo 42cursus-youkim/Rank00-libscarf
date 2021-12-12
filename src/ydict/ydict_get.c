@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:13 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 17:04:24 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 15:01:22 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ydict_getid(int capacity, char *key)
 	return (yhash_fnv1a(key) % (uint64_t)capacity);
 }
 
-static bool	does_itemmatch(t_dictitem *item, char *key)
+static bool	does_itemmatch(t_ditem *item, char *key)
 {
 	return (item && item->key && ystrequ(item->key, key));
 }

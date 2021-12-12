@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 12:45:52 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:50:46 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/12 15:01:22 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	del_ydictitem(t_dict *dict, int id)
 {
-	t_dictitem	*item;
+	t_ditem	*item;
 
 	item = dict->items[id];
 	del_ystr(item->key);

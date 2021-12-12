@@ -13,6 +13,6 @@
 #ifndef YTYPES_H
 # define YTYPES_H
 
-typedef void	(*t_destructor_f)(void *data);
+typedef void	(*t_del_f)(void *data);
 
 #endif

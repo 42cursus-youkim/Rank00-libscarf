@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/12 14:45:35 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/12 15:23:13 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,8 +48,8 @@ dictV    := \
 	ycharmap
 
 linkedV  := \
-	alloc_ydeque func_ydeque				\
-	new_ylist func_ylist #mod_ydeque		\
+	alloc_ydeque mod_ydeque			\
+	new_ylist func_ylist 			\
 
 utilsV   := \
 	func_bool

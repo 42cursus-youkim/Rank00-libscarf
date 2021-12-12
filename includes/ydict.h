@@ -18,18 +18,18 @@
 # define YDICT_INITIAL_CAPACITY 8
 # define FNV_OFFSET 14695981039346656037UL
 # define FNV_PRIME 1099511628211UL
-typedef struct s_dictitem
+typedef struct s_ditem
 {
 	char	*key;
 	void	*value;
-}	t_dictitem;
+}	t_ditem;
 
 typedef struct s_dict
 {
-	int				size;
-	int				capacity;
-	t_dictitem		**items;
-	t_destructor_f	del_value;
+	int		size;
+	int		capacity;
+	t_ditem	**items;
+	t_del_f	del_value;
 }	t_dict;
 
 //	@func
@@ -41,9 +41,9 @@ void		del_ydict(t_dict *dict);
 /*
 ** < new_ydict.c > */
 
-t_dictitem	*new_ydictitem(const char *key, void *value);
-t_dictitem	**new_ydictitem_arr(int capacity);
-t_dict		*new_ydict(t_destructor_f del_value);
+t_ditem		*new_ydictitem(const char *key, void *value);
+t_ditem		**new_ydictitem_arr(int capacity);
+t_dict		*new_ydict(t_del_f del_value);
 t_dict		*new_ydictinits(char *key[], char *value[]);
 /*
 ** < ycharmap.c > */
@@ -73,11 +73,12 @@ void		ydict_setstr(t_dict *dict, char *key, char *value);
 /*
 ** < ydict_status.c > */
 
-bool		is_input_valid(t_dict *dict, char *key, void *value);
-bool		is_key_vacant(t_dict *dict, int id);
-bool		is_key_update(t_dict *dict, int id, char *key);
-bool		is_dict_almostfull(t_dict *dict);
-bool		is_capacity_overflow(t_dict *dict);
+bool		is_input_valid(const t_dict *dict, const char *key,
+				const void *value);
+bool		is_key_vacant(const t_dict *dict, int id);
+bool		is_key_update(const t_dict *dict, int id, const char *key);
+bool		is_dict_almostfull(const t_dict *dict);
+bool		is_capacity_overflow(const t_dict *dict);
 /*
 ** < yhash.c > */
 
