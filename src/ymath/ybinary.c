@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   yatoi.c                                            :+:      :+:    :+:   */
+/*   ybinary.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/13 11:54:50 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 15:42:57 by youkim           ###   ########.fr       */
+/*   Created: 2021/12/13 16:27:58 by youkim            #+#    #+#             */
+/*   Updated: 2021/12/13 16:32:46 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	yatoi(const char *str)
+//	returns length of digits needed to represent bit
+int	ybitlen(unsigned int bit)
 {
 	int	i;
-	int	num;
-	int	sign;
 
 	i = 0;
-	num = 0;
-	sign = 1;
-	if (!str)
-		return (0);
-	while (ystrchri("\t\n\v\f\r ", str[i]) >= 0)
+	while (bit > 0)
+	{
+		bit >>= 1;
 		i++;
-	if (ystrchri("-+", str[i]) >= 0)
-		if (str[i++] == '-')
-			sign = -1;
-	while ('0' <= str[i] && str[i] <= '9')
-		num = num * 10 + (str[i++] - '0');
-	return (sign * num);
+	}
+	return (i);
+}
+
+void	ywriteitob(unsigned int bit)
+{
+	int	i;
+
+	i = ybitlen(bit);
+	ywrite(1, UMAG);
+	while (--i >= 0)
+	{
+		ywrite(1, (char [2][2]){"0", "1"}[(bit & 1 << i) != 0]);
+	}
+	ywrite(1, "\n" END);
 }

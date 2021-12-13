@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/12 15:23:13 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/13 16:46:13 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,14 +32,14 @@ TEST     := test
 PKGS     := math string system dict linked utils
 
 mathV  := \
-	func_ymath new_yitoa
+	comp_ymath yaiconv ybinary
 
 systemV  := \
 	yexit yalloc ysyscall ylog ygnl
 
 stringV  := \
 	new_ystr new_ystrjoin new_ysplit	\
-	del_ystr mod_ystr func_ystr			\
+	del_ystr mod_ystr comp_ystr			\
 
 dictV    := \
 	new_ydict del_ydict yhash			\
@@ -49,10 +49,10 @@ dictV    := \
 
 linkedV  := \
 	alloc_ydeque mod_ydeque			\
-	new_ylist func_ylist 			\
+	new_ylist comp_ylist 			\
 
 utilsV   := \
-	func_bool
+	comp_bool
 #new_ydeque
 
 # ===== Macros =====

@@ -46,7 +46,7 @@ t_dnode	*new_ydequenode(int num);
 t_deque	*new_ydeque(int size, int nums[]);
 void	del_ydeque(t_deque *deque);
 /*
-** < func_ylist.c > */
+** < comp_ylist.c > */
 
 int		ylistlen(t_list *lst);
 t_list	*ylistindex(t_list *lst, int index);

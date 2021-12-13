@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:45:25 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/01 21:10:06 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 15:44:23 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,25 @@ char	*new_yitoa(int n)
 		num /= 10;
 	}
 	return (str);
+}
+
+int	yatoi(const char *str)
+{
+	int	i;
+	int	num;
+	int	sign;
+
+	i = 0;
+	num = 0;
+	sign = 1;
+	if (!str)
+		return (0);
+	while (ystrchri("\t\n\v\f\r ", str[i]) >= 0)
+		i++;
+	if (ystrchri("-+", str[i]) >= 0)
+		if (str[i++] == '-')
+			sign = -1;
+	while ('0' <= str[i] && str[i] <= '9')
+		num = num * 10 + (str[i++] - '0');
+	return (sign * num);
 }

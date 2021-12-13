@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   yutils.h                                           :+:      :+:    :+:   */
+/*   func_bool.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 17:18:40 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/11 17:26:17 by youkim           ###   ########.fr       */
+/*   Created: 2021/12/13 11:56:56 by youkim            #+#    #+#             */
+/*   Updated: 2021/12/13 12:15:07 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef YUTILS_H
-# define YUTILS_H
+#include "libft.h"
 
-# include <stdbool.h>
+bool	is_char(char c, t_chartype type)
+{
+	int	res;
 
-//	@func
-/*
-** < comp_bool.c > */
-
-bool	yanyi(int value, int i, const int arr[]);
-#endif
+	res = 0;
+	return ((bool)res);
+}

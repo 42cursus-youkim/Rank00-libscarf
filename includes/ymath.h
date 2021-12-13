@@ -24,22 +24,24 @@ typedef enum e_chartype
 }	t_chartype;
 //	@func
 /*
-** < func_bool.c > */
+** < comp_bool.c > */
 
 bool	is_char(char c, t_chartype type);
 /*
-** < func_ymath.c > */
+** < comp_ymath.c > */
 
 int		ydigits(long long n);
 int		normalized(int n);
 int		yrand(void);
 int		ymax(int a, int b);
 /*
-** < new_yitoa.c > */
+** < yaiconv.c > */
 
 char	*new_yitoa(int n);
-/*
-** < yatoi.c > */
-
 int		yatoi(const char *str);
+/*
+** < ybinary.c > */
+
+int		ybitlen(unsigned int bit);
+void	ywriteitob(unsigned int bit);
 #endif

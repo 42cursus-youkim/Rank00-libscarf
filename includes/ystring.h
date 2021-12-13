@@ -15,17 +15,17 @@
 
 //	@func
 /*
-** < del_ystr.c > */
-
-void	del_ystr(void *str);
-void	del_ystrs(char *strs[]);
-/*
-** < func_ystr.c > */
+** < comp_ystr.c > */
 
 int		ystrlen(const char *str);
 int		ystrcmp(const char *s1, const char *s2);
 bool	ystrequ(const char *s1, const char *s2);
 int		ystrchri(const char *str, const char c);
+/*
+** < del_ystr.c > */
+
+void	del_ystr(void *str);
+void	del_ystrs(char *strs[]);
 /*
 ** < mod_ystr.c > */
 
