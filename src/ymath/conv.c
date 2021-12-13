@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:46:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 16:53:44 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 17:45:07 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,49 @@ int	yrand(void)
 	return (r);
 }
 
-int	ymax(int a, int b)
+char	*new_yitoa(int n)
 {
-	if (a > b)
-		return (a);
-	else
-		return (b);
+	char	*str;
+	int		digit;
+	long	num;
+
+	num = n;
+	if (num == 0)
+		return (new_ystr("0"));
+	digit = ydigitlen(num);
+	if (num < 0)
+		digit++;
+	str = new_ystrm(digit);
+	if (num < 0)
+	{
+		num = -num;
+		str[0] = '-';
+	}
+	while (num > 0)
+	{
+		str[--digit] = '0' + (num % 10);
+		num /= 10;
+	}
+	return (str);
 }
 
-int	ymin(int a, int b)
+int	yatoi(const char *str)
 {
-	if (a < b)
-		return (a);
-	else
-		return (b);
+	int	i;
+	int	num;
+	int	sign;
+
+	i = 0;
+	num = 0;
+	sign = 1;
+	if (!str)
+		return (0);
+	while (ystrchri("\t\n\v\f\r ", str[i]) >= 0)
+		i++;
+	if (ystrchri("-+", str[i]) >= 0)
+		if (str[i++] == '-')
+			sign = -1;
+	while ('0' <= str[i] && str[i] <= '9')
+		num = num * 10 + (str[i++] - '0');
+	return (sign * num);
 }

@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:55:22 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/12 15:43:48 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 17:47:37 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 # include "ysystem.h"
 # include "ydict.h"
 # include "ylinked.h"
-# include "yutils.h"
 # include "colors.h"
 
 //	===== Marcos & Enums =====

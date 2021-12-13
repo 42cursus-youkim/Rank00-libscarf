@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/13 17:12:59 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/13 17:47:20 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,11 @@ HGEN     := hgen
 TEST     := test
 
 # ===== Packages =====
-PKGS     := math string system dict linked utils
+PKGS     := math string system dict linked
 
 mathV    := \
-	comp conv utils yaiconv ybinary
+	comp_num comp_char 				\
+	conv utils ybinary
 
 systemV  := \
 	yexit yalloc ysyscall ylog ygnl
@@ -50,9 +51,6 @@ dictV    := \
 linkedV  := \
 	alloc_ydeque mod_ydeque			\
 	new_ylist comp_ylist 			\
-
-utilsV   := \
-	comp_bool
 #new_ydeque
 
 # ===== Macros =====
