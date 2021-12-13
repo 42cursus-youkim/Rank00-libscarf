@@ -6,14 +6,14 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 17:52:35 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 18:18:43 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef YMATH_H
 # define YMATH_H
 
-typedef enum e_chartype
+typedef enum e_ctype_b
 {
 	LOWER = 0b0001,
 	UPPER = 0b0010,
@@ -21,12 +21,12 @@ typedef enum e_chartype
 	DIGIT = 0b0100,
 	ALNUM = 0b0111,
 	ASCII = 0b1000,
-}	t_chartype;
+}	t_ctype_b;
 //	@func
 /*
 ** < comp_char.c > */
 
-bool	is_char(char c, t_chartype type);
+bool	is_char(char c, t_ctype_b type);
 /*
 ** < comp_num.c > */
 
