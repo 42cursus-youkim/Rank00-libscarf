@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:46:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 17:45:07 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 18:32:11 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	yatoi(const char *str)
 	if (ystrchri("-+", str[i]) >= 0)
 		if (str[i++] == '-')
 			sign = -1;
-	while ('0' <= str[i] && str[i] <= '9')
+	while (is_char(str[i], DIGIT))
 		num = num * 10 + (str[i++] - '0');
 	return (sign * num);
 }
