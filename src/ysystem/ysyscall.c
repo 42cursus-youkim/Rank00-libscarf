@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:40:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 17:17:52 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 17:40:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,18 @@ int	ywrite(int fd, char *str)
 	return (write(fd, str, ystrlen(str)));
 }
 
-//	same as write but with colors
-int	ywritecolor(int fd, char *str, char *color)
+//	write but with array and colors
+int	ywritecolors(int fd, char *color, char *strs[])
 {
-	return (ywrite(fd, color) + ywrite(fd, str) + ywrite(fd, END));
+	int	i;
+	int	result;
+
+	i = -1;
+	result = ywrite(fd, color);
+	while (strs[++i])
+		result += ywrite(fd, strs[i]);
+	result += ywrite(fd, END);
+	return (result);
 }
 
 /*	prints out inputs but attempts to free odd indexed strings.
@@ -29,10 +37,10 @@ int	ywritecolor(int fd, char *str, char *color)
 	hence the range for termination. returns length of chars printed.
 	usage: del_ywritejoin(1, 4, (char *[]){"str1" newstr() "str2" newstr2()})
 */
-int	del_ywritejoin(int fd, int size, char *strs[])
+int	del_ywrites(int fd, int size, char *strs[])
 {
-	int		i;
-	int		result;
+	int	i;
+	int	result;
 
 	i = -1;
 	result = 0;

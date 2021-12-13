@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:27:58 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 17:27:28 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 17:37:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,15 @@ int	ybitlen(unsigned int bit)
 	int	i;
 
 	i = 0;
-	while (bit > 0)
-	{
+	while (bit > 0 && ++i)
 		bit >>= 1;
-		i++;
-	}
 	return (i);
 }
 
 //	memory safe printout of binary
 void	ywriteitob(unsigned int bit)
 {
-	del_ywritejoin(1, 3,
-		(char *[5]){HMAG, new_yitob(bit), "\n", NULL, END});
+	del_ywrites(1, 3, (char *[5]){HMAG, new_yitob(bit), "\n", NULL, END});
 }
 
 char	*new_yitob(unsigned int bit)

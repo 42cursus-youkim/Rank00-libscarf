@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 15:19:14 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/07 17:32:53 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 17:37:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	yassert(bool statement, char *err);
 ** < ysyscall.c > */
 
 int		ywrite(int fd, char *str);
-int		ywritecolor(int fd, char *str, char *color);
-int		del_ywritejoin(int fd, int size, char *strs[]);
+int		ywritecolors(int fd, char *color, char *strs[]);
+int		del_ywrites(int fd, int size, char *strs[]);
 int		yread(int fd, char *buf, int buffer_size);
 #endif

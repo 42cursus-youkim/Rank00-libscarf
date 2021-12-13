@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:29:52 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/12 14:59:15 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 17:43:25 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,14 @@
 //	log at STDOUT, but does not kill process
 void	ywarn(char *warn)
 {
-	char	*msg;
-
-	msg = new_ystrjoin((char *[]) \
-		{"[Warning]\n    ", warn, "\n", NULL} \
-	);
-	ywritecolor(1, msg, YEL);
-	del_ystr(msg);
+	ywritecolors(1, YEL, (char *[]){"[Warning]\n    ", warn, "\n", NULL});
 }
 
 //	log at STDERR, kill process
 void	yerror(char *where, char *err)
 {
-	char	*msg;
-
-	msg = new_ystrjoin((char *[]) \
-		{"[Error! @ ", where, "]\n    ", err, "\n", NULL} \
-	);
-	ywritecolor(2, msg, BHRED);
-	del_ystr(msg);
+	ywritecolors(2, BHRED, (char *[]){
+		"[Error! @ ", where, "]\n    ", err, "\n", NULL});
 	yexit(1);
 }
 
