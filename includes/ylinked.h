@@ -50,6 +50,7 @@ void	del_ydeque(t_deque *deque);
 
 int		ylistlen(t_list *lst);
 t_list	*ylistindex(t_list *lst, int index);
+void	ydeque_show(t_deque *deque);
 /*
 ** < mod_ydeque.c > */
 

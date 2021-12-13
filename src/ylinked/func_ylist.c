@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:51:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/23 19:56:24 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 11:21:58 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,25 @@ t_list	*ylistindex(t_list *lst, int index)
 	while (lst && i++ < index)
 		lst = lst->next;
 	return (lst);
+}
+
+void	ydeque_show(t_deque *deque)
+{
+	int		i;
+	t_dnode	*curs;
+	char	*numstr;
+
+	i = -1;
+	curs = deque->head;
+	ywrite(1, "deq => [");
+	while (++i < deque->size)
+	{
+		numstr = new_yitoa(curs->num);
+		ywritecolor(1, numstr, YEL);
+		if (i != deque->size - 1)
+			ywrite(1, ", ");
+		del_ystr(numstr);
+		curs = curs->lower;
+	}
+	ywrite(1, "]\n");
 }
