@@ -43,5 +43,6 @@ void	yassert(bool statement, char *err);
 
 int		ywrite(int fd, char *str);
 int		ywritecolor(int fd, char *str, char *color);
+int		del_ywritejoin(int fd, int size, char *strs[]);
 int		yread(int fd, char *buf, int buffer_size);
 #endif

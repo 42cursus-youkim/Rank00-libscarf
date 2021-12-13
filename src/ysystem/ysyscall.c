@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:40:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 13:17:27 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 17:17:52 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,28 @@ int	ywrite(int fd, char *str)
 //	same as write but with colors
 int	ywritecolor(int fd, char *str, char *color)
 {
-	int		result;
-	char	*temp;
+	return (ywrite(fd, color) + ywrite(fd, str) + ywrite(fd, END));
+}
 
-	temp = new_ystr(str);
-	ystr_color(&temp, color);
-	result = ywrite(fd, temp);
-	del_ystr(temp);
+/*	prints out inputs but attempts to free odd indexed strings.
+	it wouldn't if the string in question is NULL,
+	hence the range for termination. returns length of chars printed.
+	usage: del_ywritejoin(1, 4, (char *[]){"str1" newstr() "str2" newstr2()})
+*/
+int	del_ywritejoin(int fd, int size, char *strs[])
+{
+	int		i;
+	int		result;
+
+	i = -1;
+	result = 0;
+	while (++i < size)
+	{
+		if (strs[i])
+			result += ywrite(fd, strs[i]);
+		if (strs[i] && i % 2 == 1)
+			del_ystr(strs[i]);
+	}
 	return (result);
 }
 

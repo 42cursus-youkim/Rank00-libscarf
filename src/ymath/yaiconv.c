@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_yitoa.c                                        :+:      :+:    :+:   */
+/*   yaiconv.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:45:25 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 15:44:23 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 16:54:14 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*new_yitoa(int n)
 	num = n;
 	if (num == 0)
 		return (new_ystr("0"));
-	digit = ydigits(num);
+	digit = ydigitlen(num);
 	if (num < 0)
 		digit++;
 	str = new_ystrm(digit);

@@ -1,35 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   func_ymath.c                                       :+:      :+:    :+:   */
+/*   conv.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:46:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/11 17:42:34 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 16:53:44 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-//	returns how many digits the number has
-int	ydigits(long long n)
-{
-	int	digit;
-
-	digit = 0;
-	if (n < 0)
-	{
-		n /= -10;
-		digit++;
-	}
-	while (n > 0)
-	{
-		n /= 10;
-		digit++;
-	}
-	return (digit);
-}
 
 //	convert input to one of -1, 0, 1
 int	normalized(int n)
@@ -54,6 +35,14 @@ int	yrand(void)
 int	ymax(int a, int b)
 {
 	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+int	ymin(int a, int b)
+{
+	if (a < b)
 		return (a);
 	else
 		return (b);

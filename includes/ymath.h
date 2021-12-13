@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 12:13:22 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/13 16:54:14 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,16 @@ typedef enum e_chartype
 }	t_chartype;
 //	@func
 /*
-** < comp_bool.c > */
+** < comp.c > */
 
-bool	is_char(char c, t_chartype type);
+int		ydigitlen(long long n);
 /*
-** < comp_ymath.c > */
+** < conv.c > */
 
-int		ydigits(long long n);
 int		normalized(int n);
 int		yrand(void);
 int		ymax(int a, int b);
+int		ymin(int a, int b);
 /*
 ** < yaiconv.c > */
 
@@ -44,4 +44,5 @@ int		yatoi(const char *str);
 
 int		ybitlen(unsigned int bit);
 void	ywriteitob(unsigned int bit);
+char	*new_yitob(unsigned int bit);
 #endif
