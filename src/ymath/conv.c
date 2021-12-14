@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:46:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 18:32:11 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/14 20:56:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ char	*new_yitoa(int n)
 	return (str);
 }
 
-int	yatoi(const char *str)
+//	pass reference to n to convert str to int
+t_res	yatoi(const char *str, int *n)
 {
 	int	i;
 	int	num;
@@ -68,7 +69,7 @@ int	yatoi(const char *str)
 	num = 0;
 	sign = 1;
 	if (!str)
-		return (0);
+		return (ERR);
 	while (ystrchri("\t\n\v\f\r ", str[i]) >= 0)
 		i++;
 	if (ystrchri("-+", str[i]) >= 0)
@@ -76,5 +77,6 @@ int	yatoi(const char *str)
 			sign = -1;
 	while (is_char(str[i], DIGIT))
 		num = num * 10 + (str[i++] - '0');
-	return (sign * num);
+	*n = sign * num;
+	return (OK);
 }

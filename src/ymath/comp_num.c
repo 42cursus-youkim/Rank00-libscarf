@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 11:56:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 17:48:34 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/14 21:00:03 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ int	ymin(int a, int b)
 		return (a);
 	else
 		return (b);
+}
+
+void	yswap(int *a, int *b)
+{
+	int	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
 //	returns how many digits the number has
