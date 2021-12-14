@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:55:22 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 17:47:37 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/14 21:07:09 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,6 @@
 # include "ydict.h"
 # include "ylinked.h"
 # include "colors.h"
-
-//	===== Marcos & Enums =====
-typedef enum e_res
-{
-	OK = 0,
-	ERR = -1,
-	UNSET = -1,
-}	t_res;
 
 /*	===== Documentations =====
 	refactored libft by @youkim

@@ -6,12 +6,14 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/14 20:59:04 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/14 21:07:40 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef YMATH_H
 # define YMATH_H
+
+# include "ytypes.h"
 
 typedef enum e_ctflag_b
 {
