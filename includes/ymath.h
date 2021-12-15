@@ -42,12 +42,13 @@ bool	is_char(char c, t_cflag_b flag);
 
 int		ymax(int a, int b);
 int		ymin(int a, int b);
-void	yswap(int *a, int *b);
+int		ymedian(int size, int arr[]);
 int		ydigitlen(long long n);
 bool	yanyi(int value, int size, const int arr[]);
 /*
 ** < conv.c > */
 
+void	yswap(int *a, int *b);
 int		normalized(int n);
 int		yrand(void);
 char	*new_yitoa(int n);

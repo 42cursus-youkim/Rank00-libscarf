@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 11:56:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/15 16:31:55 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/15 16:41:36 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,10 @@ int	ymin(int a, int b)
 		return (b);
 }
 
-void	yswap(int *a, int *b)
+int	ymedian(int size, int arr[])
 {
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
+	yqsort(size, arr);
+	return (arr[size / 2]);
 }
 
 //	returns how many digits the number has
