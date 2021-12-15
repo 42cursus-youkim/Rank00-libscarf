@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 12:58:39 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/14 21:07:40 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/15 11:02:12 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ typedef enum e_ctflag_b
 	ALNUM = 0b0111,
 	ASCII = 0b1000,
 }	t_cflag_b;
+
+//	number container
+typedef struct s_vec
+{
+	int	x;
+	int	y;
+}	t_vec;
 
 //	@func
 /*
@@ -51,4 +58,9 @@ t_res	yatoi(const char *str, int *n);
 int		ybitlen(unsigned int bit);
 void	ywriteitob(unsigned int bit);
 char	*new_yitob(unsigned int bit);
+/*
+** < yvector.c > */
+
+void	vec_set(t_vec *v1, t_vec *v2);
+void	vec_update(t_vec *v1, t_vec *v2);
 #endif

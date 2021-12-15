@@ -42,7 +42,7 @@ void	yassert(bool statement, char *err);
 ** < ysyscall.c > */
 
 int		ywrite(int fd, char *str);
-int		ywritecolors(int fd, char *color, char *strs[]);
+int		ywritecolors(int fd, const char *color, char *strs[]);
 int		del_ywrites(int fd, int size, char *strs[]);
 int		yread(int fd, char *buf, int buffer_size);
 #endif
