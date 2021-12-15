@@ -59,6 +59,10 @@ int		ybitlen(unsigned int bit);
 void	ywriteitob(unsigned int bit);
 char	*new_yitob(unsigned int bit);
 /*
+** < yqsort.c > */
+
+void	yqsort(int size, int arr[]);
+/*
 ** < yvector.c > */
 
 void	vec_set(t_vec *v1, t_vec *v2);
