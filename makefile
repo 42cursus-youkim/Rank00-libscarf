@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/15 17:06:22 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/16 11:16:35 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -103,7 +103,7 @@ docs:
 
 testdry: docs all
 	@$(call log, Y, Preparing Test,...)
-	@$(CC) $(INC) $(NAME) $(TEST).c -o test
+	@$(CC) $(DFLAGS) $(INC) $(NAME) $(TEST).c -o test
 	@$(call log, G, Compiled Test)
 
 test: testdry cls
@@ -113,13 +113,13 @@ test: testdry cls
 
 leak: docs all cls
 	@$(call log, Y, Running Leak Test,...)
-	@$(CC) $(INC) $(NAME) test.c -o test
+	@$(CC) $(DFLAGS) $(INC) $(NAME) test.c -o test
 	@colour-valgrind $(VFLAGS) ./test
 	@rm test
 
 leaksup: docs all cls
 	@echo "$(Y)<Creating Leak Suppressions>$(E)"
-	@$(CC) $(INC) $(NAME) tests/test.c -o test
+	@$(CC) $(DFLAGS) $(INC) $(NAME) tests/test.c -o test
 	@valgrind $(VFLAGS) --gen-suppressions=yes ./test
 	@rm test
 
