@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 11:26:06 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/16 11:30:58 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/19 10:45:11 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int	partition(int arr[], int left, int right)
 	int			hi;
 	const int	pivot = left;
 
-	lo = left + 1;
+	lo = left;
 	hi = right;
 	while (lo < hi)
 	{
