@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/19 10:16:26 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/19 11:51:46 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -116,7 +116,7 @@ leak: docs all cls
 	@$(CC) $(DFLAGS) $(INC) $(NAME) test.c -o test
 	@colour-valgrind $(VFLAGS) ./test
 	@rm test
-
+#$(shell ruby -e "puts (1..11).to_a.shuffle.join  (' ')")
 leaksup: docs all cls
 	@echo "$(Y)<Creating Leak Suppressions>$(E)"
 	@$(CC) $(DFLAGS) $(INC) $(NAME) tests/test.c -o test

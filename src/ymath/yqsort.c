@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 11:26:06 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/19 10:45:11 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/19 11:51:19 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ static int	partition(int arr[], int left, int right)
 	hi = right;
 	while (lo < hi)
 	{
-		while (arr[lo] <= arr[pivot] && lo <= right)
+		while (lo <= right && arr[lo] <= arr[pivot])
 			lo++;
-		while (arr[hi] > arr[pivot] && hi >= left)
+		while (hi >= left && arr[hi] > arr[pivot])
 			hi--;
 		if (lo < hi)
 			yswap(&arr[lo], &arr[hi]);
