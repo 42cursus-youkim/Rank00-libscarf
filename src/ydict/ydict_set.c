@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 20:27:21 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/12 15:01:22 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/19 10:00:13 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static void	ydict_insert(t_dict *dict, int id, char *key, void *value)
 //	replace the value of an existing key
 static void	ydict_update(t_dict *dict, int id, void *value)
 {
-	free(dict->items[id]->value);
+	dict->del_value(dict->items[id]->value);
 	dict->items[id]->value = value;
 }
 
@@ -48,7 +48,7 @@ static void	ydict_probe(t_dict *dict, int id, char *key, void *value)
 }
 
 /*	all values provided are MOVED and NOT COPIED!
-	external function should handle these kind of ops.
+	insert NULL for destructor if you wish to use constants for values
 	key vacant: inserts new item
 	key same  : replaces value
 	key diff  : probe for empty index
@@ -69,15 +69,4 @@ void	ydict_set(t_dict *dict, char *key, void *value)
 		ydict_update(dict, id, value);
 	else
 		ydict_probe(dict, id, key, value);
-}
-
-/*	safe way to set string. allocates new string internally.
-	it's not really new_ because it would be all freed with del_ydict
-*/
-void	ydict_setstr(t_dict *dict, char *key, char *value)
-{
-	void	*vptr;
-
-	vptr = new_ystr(value);
-	ydict_set(dict, key, vptr);
 }

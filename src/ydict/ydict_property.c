@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 15:46:37 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/12 15:23:27 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/19 09:49:36 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ydict_visualize(t_dict *dict)
 	{
 		item = dict->items[id];
 		if (item && item->key)
-			printf("%s%2d |%-8s|%s\n%s",
+			printf("%s%2d |%-8s|%s%s\n",
 				HGRN, id++, item->key, item->value, END);
 		else
 			printf("%2d |%8s|\n", id++, "");

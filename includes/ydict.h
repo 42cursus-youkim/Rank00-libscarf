@@ -15,9 +15,13 @@
 
 # include "ytypes.h"
 
-# define YDICT_INITIAL_CAPACITY 8
-# define FNV_OFFSET 14695981039346656037UL
-# define FNV_PRIME 1099511628211UL
+typedef enum e_dictconfig
+{
+	YDICT_INITIAL_CAPACITY = 8,
+	FNV_OFFSET = 14695981039346656037UL,
+	FNV_PRIME = 1099511628211UL,
+}	t_dictconfig;
+
 typedef struct s_ditem
 {
 	char	*key;
@@ -36,6 +40,7 @@ typedef struct s_dict
 /*
 ** < del_ydict.c > */
 
+void		no_free(void *data);
 void		del_ydictitem(t_dict *dict, int id);
 void		del_ydict(t_dict *dict);
 /*
@@ -69,7 +74,6 @@ void		ydict_visualize(t_dict *dict);
 ** < ydict_set.c > */
 
 void		ydict_set(t_dict *dict, char *key, void *value);
-void		ydict_setstr(t_dict *dict, char *key, char *value);
 /*
 ** < ydict_status.c > */
 

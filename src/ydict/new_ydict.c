@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:23:42 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/12 15:23:35 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/19 10:31:08 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,15 @@ static void	ydict_setup(t_dict *dict, t_del_f del_value)
 	dict->size = 0;
 	dict->capacity = YDICT_INITIAL_CAPACITY;
 	dict->items = new_ydictitem_arr(dict->capacity);
-	dict->del_value = del_value;
+	if (del_value)
+		dict->del_value = del_value;
+	else
+		dict->del_value = no_free;
 }
 
-/*	creates an empty dict with destructor.
+/*	creates an empty dict with destructor. pass NULL for constant values.
 	Internal structure assumes all items are of SAME TYPE.
-	(or, it should be able to deconstructed with same del_func pointer)
-	returns NULL if memory allocation fails.
+	(at least they could be freed with same destructor)
 */
 t_dict	*new_ydict(t_del_f del_value)
 {
@@ -68,17 +70,17 @@ t_dict	*new_ydict(t_del_f del_value)
 	}
 }
 
-//	creates a new dict with string k,v
+//	creates a new dict with allocated string k,v
 t_dict	*new_ydictinits(char *key[], char *value[])
 {
 	int		i;
 	t_dict	*dict;
 
-	dict = new_ydict(del_ystr);
+	dict = new_ydict(NULL);
 	if (!dict)
 		return (NULL);
 	i = -1;
 	while (key[++i] && value[i])
-		ydict_setstr(dict, key[i], value[i]);
+		ydict_set(dict, key[i], value[i]);
 	return (dict);
 }

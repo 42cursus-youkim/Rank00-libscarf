@@ -6,11 +6,18 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 12:45:52 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/12 15:01:22 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/19 10:00:27 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+//	does nothing, for placeholder destructor
+void	no_free(void *data)
+{
+	if (!data || data)
+		return ;
+}
 
 void	del_ydictitem(t_dict *dict, int id)
 {

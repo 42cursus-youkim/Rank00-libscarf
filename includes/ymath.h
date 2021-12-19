@@ -44,6 +44,9 @@ int		ymax(int a, int b);
 int		ymin(int a, int b);
 int		ymedian(int size, int arr[]);
 int		ydigitlen(long long n);
+/*
+** < comp_val.c > */
+
 bool	yanyi(int value, int size, const int arr[]);
 /*
 ** < conv.c > */
