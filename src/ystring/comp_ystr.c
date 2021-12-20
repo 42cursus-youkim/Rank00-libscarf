@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 15:20:55 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/15 08:48:02 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/20 11:30:14 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ystrlen(const char *str)
 {
 	int	i;
 
+	if (!str)
+		return (ERR);
 	i = 0;
 	while (str[i])
 		i++;
