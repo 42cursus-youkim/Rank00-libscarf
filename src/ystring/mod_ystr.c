@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 11:42:56 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/03 13:17:37 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/20 11:53:02 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,17 @@ int	ystrcpy(char *dst, const char *src)
 */
 int	ystr_append(char **pstr, char *src)
 {
-	int		org_len;
-	int		src_len;
-	char	*temp;
+	const int	org_len = ystrlen(*pstr);
+	const int	src_len = ystrlen(src);
+	const int	new_len = org_len + src_len;
+	char		*new;
 
-	org_len = ystrlen(*pstr);
-	src_len = ystrlen(src);
-	temp = new_ystrm(org_len + src_len);
-	ystrcpy(temp, *pstr);
-	ystrcpy(temp + org_len, src);
+	new = new_ystrm(new_len);
+	ystrcpy(new, *pstr);
+	ystrcpy(new + org_len, src);
 	del_ystr(*pstr);
-	*pstr = temp;
-	return (ystrlen(*pstr));
+	*pstr = new;
+	return (new_len);
 }
 
 /*	colorize given string. memory safe!
@@ -49,21 +48,21 @@ int	ystr_append(char **pstr, char *src)
 */
 void	ystr_color(char **pstr, char *color)
 {
-	char	*temp;
+	char	*new;
 
-	temp = new_ystrjoin((char *[]){color, *pstr, END, 0});
+	new = new_ystrjoin((char *[]){color, *pstr, END, 0});
 	free(*pstr);
-	*pstr = temp;
+	*pstr = new;
 }
 
 //	replace given NEW string with OLD string. memory safe!
 void	ystr_replace(char **pstr, char *new_str)
 {
-	char	*temp;
+	char	*new;
 
-	temp = new_str;
+	new = new_str;
 	del_ystr(*pstr);
-	*pstr = temp;
+	*pstr = new;
 }
 
 //	new str from sliced range.
