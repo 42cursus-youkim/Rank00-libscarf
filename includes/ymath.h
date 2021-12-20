@@ -48,6 +48,7 @@ int		ydigitlen(long long n);
 ** < comp_val.c > */
 
 bool	yanyi(int value, int size, const int arr[]);
+bool	is_int_overflow(char *numstr);
 /*
 ** < conv.c > */
 

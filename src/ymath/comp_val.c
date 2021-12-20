@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/19 10:04:11 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/19 10:19:17 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/20 17:10:32 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,20 @@ bool	yanyi(int value, int size, const int arr[])
 	while (arr[--size])
 		if (value == arr[size])
 			return (true);
+	return (false);
+}
+
+//	numstr is supposed to be "-123" or "123"
+bool	is_int_overflow(char *numstr)
+{
+	int	i;
+	int	n;
+
+	yatoi(numstr, &n);
+	i = ystrchri(numstr, '-');
+	if (i >= 0 && n > 0)
+		return (true);
+	else if (i == ERR && n < 0)
+		return (true);
 	return (false);
 }
