@@ -6,7 +6,7 @@
 #    By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/09 14:12:20 by youkim            #+#    #+#              #
-#    Updated: 2021/12/19 11:51:46 by youkim           ###   ########.fr        #
+#    Updated: 2021/12/20 16:15:29 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ PKGS     := math string system dict linked
 
 mathV    := \
 	comp_num comp_char comp_val		\
-	conv ybinary yqsort #utils
+	conv ybinary yqsort yvector
 
 systemV  := \
 	yexit yalloc ysyscall ylog ygnl

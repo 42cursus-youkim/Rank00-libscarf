@@ -69,6 +69,6 @@ void	yqsort(int size, int arr[]);
 /*
 ** < yvector.c > */
 
-void	vec_set(t_vec *v1, t_vec *v2);
-void	vec_update(t_vec *v1, t_vec *v2);
+void	vec_set(t_vec *v1, t_vec v2);
+void	vec_update(t_vec *v1, t_vec v2);
 #endif
