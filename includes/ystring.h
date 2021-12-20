@@ -26,6 +26,7 @@ int		ystrchri(const char *str, const char c);
 
 void	del_ystr(void *str);
 void	del_ystrs(char *strs[]);
+void	del_ystrarr(char *strarr[]);
 /*
 ** < mod_ystr.c > */
 

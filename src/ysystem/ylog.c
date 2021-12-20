@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 13:29:52 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 17:43:25 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/20 16:25:18 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	ycheckerr(int statement, char *err)
 	return (statement);
 }
 
-void	yassert(bool statement, char *err)
+void	yassert(bool statement, char *where, char *err)
 {
 	if (!statement)
-		yerror("yassert", err);
+		yerror(where, err);
 }

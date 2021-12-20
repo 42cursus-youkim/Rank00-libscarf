@@ -37,7 +37,7 @@ char	*yreadline(int fd);
 void	ywarn(char *warn);
 void	yerror(char *where, char *err);
 int		ycheckerr(int statement, char *err);
-void	yassert(bool statement, char *err);
+void	yassert(bool statement, char *where, char *err);
 /*
 ** < ysyscall.c > */
 

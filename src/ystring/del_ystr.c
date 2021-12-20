@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 10:54:05 by youkim            #+#    #+#             */
-/*   Updated: 2021/11/26 11:36:27 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/20 16:25:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,15 @@ void	del_ystrs(char *strs[])
 {
 	int	i;
 
+	yassert(strs, "del_ystrs", "strs is NULL");
 	i = -1;
 	while (strs[++i])
 		del_ystr(strs[i]);
+}
+
+void	del_ystrarr(char *strarr[])
+{
+	yassert(strarr, "del_ystrarr", "strarr is NULL");
+	del_ystrs(strarr);
+	free(strarr);
 }
