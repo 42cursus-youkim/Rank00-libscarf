@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:51:10 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/14 20:32:46 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/20 16:44:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ydeque_show(t_deque *deque)
 	while (++i < deque->size)
 	{
 		numstr = new_yitoa(curs->num);
-		ywritecolors(1, YEL, (char *[1]){numstr});
+		ywritecolors(1, YEL, (char *[]){numstr, NULL});
 		if (i != deque->size - 1)
 			ywrite(1, ", ");
 		del_ystr(numstr);

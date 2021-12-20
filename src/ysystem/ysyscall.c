@@ -6,7 +6,7 @@
 /*   By: youkim < youkim@student.42seoul.kr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 17:40:48 by youkim            #+#    #+#             */
-/*   Updated: 2021/12/13 17:40:27 by youkim           ###   ########.fr       */
+/*   Updated: 2021/12/20 16:44:25 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	ywrite(int fd, char *str)
 	return (write(fd, str, ystrlen(str)));
 }
 
-//	write but with array and colors
+/*	write but with array and colors
+	usage: ywritecolors(1, YEL, (char *[2]){"hello", NULL});
+*/
 int	ywritecolors(int fd, char *color, char *strs[])
 {
 	int	i;
