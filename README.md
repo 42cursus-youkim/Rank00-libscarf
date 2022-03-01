@@ -1,4 +1,4 @@
-# 🗃️ libftscarf
+# 🗃️ libscarf
 
 ## pre-fixed lib
 
