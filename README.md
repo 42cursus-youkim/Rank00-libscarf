@@ -1,12 +1,15 @@
-# 🗃️ ylibft
+# 🗃️ libftscarf
 
-## libft but with new features and refactors
+## pre-fixed lib
 
-- including it as submodule is **_fun_**!
-- not so fun when doing `checkouts`
+- saves time!
+- no messy memory
+- fimally!
+- i enjoy
 
 ## features
 
+- easy memory allocation notation
 - modular packages
 - hashmap/dict
 - linked list and deques
