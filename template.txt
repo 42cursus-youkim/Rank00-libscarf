@@ -1,0 +1,5 @@
+#ifndef {package}_H
+# define {package}_H
+
+//@func
+#endif
