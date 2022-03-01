@@ -13,18 +13,19 @@ PRE      := src
 INC      := -I include
 
 HGEN     := hgen
-TEST     := test
 
 # ===== @Packages =====
-PKGS     := string
+PKGS     := string error system
 
-stringV  := new check util util2 array array2 split join
+stringV  := new util
+errorV   := error
+systemV  := alloc
 
 # ===== Macros =====
 define choose_modules
 	$(foreach pkg, $(1),\
 		$(foreach file, $($(pkg)V),\
-			$(PRE)/$(pkg)/$(file).c\
+			$(PRE)/lib_$(pkg)/$(file).c\
 		)\
 	)
 endef
@@ -46,7 +47,7 @@ all: $(NAME)
 
 clean:
 	@$(RM) $(OBJ)
-	@echo cleaned $(NAME)'s object files
+	@echo "cleaned $(NAME)'s object files"
 
 fclean: clean
 	@$(RM) $(NAME)
@@ -55,19 +56,14 @@ fclean: clean
 re: fclean all
 
 # ===== Custom Rules =====
-red: fclean docs all
-ald: docs all
-
 docs:
 	@set -e;\
 		for p in $(PKGS); do\
 			$(HGEN) -I include/$$p.h src/$$p 1> /dev/null;\
 		done
 
-testdry: docs all
+test:
 	@$(CC) $(DFLAGS) $(INC) $(NAME) $(TEST).c -o test
-
-test: testdry
 	@./$(TEST)
 
 leak: docs all
@@ -75,8 +71,7 @@ leak: docs all
 	@colour-valgrind $(VFLAGS) ./test
 	@rm test
 
-leaksup: docs all cls
-	@echo <Creating Leak Suppressions>"
+supp: docs all cls
 	@$(CC) $(DFLAGS) $(INC) $(NAME) tests/test.c -o test
 	@valgrind $(VFLAGS) --gen-suppressions=yes ./test
 	@rm test
