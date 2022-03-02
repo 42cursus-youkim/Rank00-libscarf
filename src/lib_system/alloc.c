@@ -1,7 +1,7 @@
 #include "lib_system.h"
 
 //	returns ptr
-void	*ft_memset(void *b, char c, int space)
+void	*lib_memset(void *b, char c, int space)
 {
 	int		i;
 	char	*ptr;
@@ -14,12 +14,12 @@ void	*ft_memset(void *b, char c, int space)
 }
 
 //	returns ptr set to 0
-void	*ft_bzero(void *ptr, int n)
+void	*lib_bzero(void *ptr, int n)
 {
-	return (ft_memset(ptr, '\0', n));
+	return (lib_memset(ptr, '\0', n));
 }
 
-void	*ft_calloc(size_t size, size_t count)
+void	*lib_calloc(size_t size, size_t count)
 {
 	char			*ptr;
 	const size_t	allocated_space = size * (count + 1);
@@ -27,8 +27,8 @@ void	*ft_calloc(size_t size, size_t count)
 	ptr = malloc(allocated_space);
 	if (!ptr)
 	{
-		error_syscall("ft_calloc");
+		error_syscall("lib_calloc");
 		exit(EXIT_FAILURE);
 	}
-	return (ft_bzero(ptr, allocated_space));
+	return (lib_bzero(ptr, allocated_space));
 }

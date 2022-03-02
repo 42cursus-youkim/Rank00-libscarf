@@ -8,12 +8,12 @@
 /*
 ** < alloc.c > */
 
-void	*ft_memset(void *b, char c, int space);
-void	*ft_bzero(void *ptr, int n);
-void	*ft_calloc(size_t size, size_t count);
+void	*lib_memset(void *b, char c, int space);
+void	*lib_bzero(void *ptr, int n);
+void	*lib_calloc(size_t size, size_t count);
 /*
 ** < write.c > */
 
-int		ft_write(int fd, const t_string str);
-int		ft_writes(int fd, t_string arr[]);
+int		lib_write(int fd, const t_string str);
+int		lib_writes(int fd, t_string arr[]);
 #endif

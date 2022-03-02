@@ -7,7 +7,7 @@ t_string	str_new(const t_string src)
 	t_string	new;
 
 	i = str_len(src);
-	new = ft_calloc(sizeof(char), i);
+	new = lib_calloc(sizeof(char), i);
 	while (--i >= 0)
 		new[i] = src[i];
 	return (new);
