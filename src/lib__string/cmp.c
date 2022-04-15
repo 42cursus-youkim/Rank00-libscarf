@@ -1,7 +1,4 @@
-#include <stdbool.h>
 #include "lib__string.h"
-#include "lib__math.h"
-#include "lib__types__string.h"
 
 /** @brief Compare two strings. use str__is_equal() instead.
  *  @return n1 - n2 of first non-matching char || 0 (leached end) */

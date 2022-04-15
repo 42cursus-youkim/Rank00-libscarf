@@ -7,5 +7,6 @@
 /*
 ** < error.c > */
 
-t_res	lib__error__syscall(char *category);
+void	lib__oppanic__syscall(t_string category);
+void	lib__panic(t_string what);
 #endif
