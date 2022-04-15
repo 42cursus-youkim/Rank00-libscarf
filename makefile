@@ -10,7 +10,7 @@ AR       := ar -rcs
 HGEN     := hgen
 
 # ===== @Packages =====
-PKGS     := error math string system vector
+PKGS     := error math string system vector test
 
 #FIXME: specify packages
 stringV  := alloc util
@@ -67,6 +67,6 @@ leak: docs all
 	@rm test
 
 test: docs all
-	@$(CC) $(NAME) test/main.c -o test
-	@./test
-	@rm test
+	@$(CC) $(NAME) $(CFLAGS) test/main.c -o test/test.out
+	@./test/test.out
+	@rm test/test.out

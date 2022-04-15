@@ -6,10 +6,6 @@
 
 //@func
 /*
-** < assert.c > */
-
-void	lib__assert(bool expr, const t_string name);
-/*
 ** < error.c > */
 
 t_res	lib__error__syscall(char *category);
