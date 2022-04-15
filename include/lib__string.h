@@ -2,8 +2,7 @@
 # define LIB__STRING_H
 
 # include "lib__error.h"
-# include "lib__types__num.h"
-# include "lib__types__string.h"
+# include "lib__types.h"
 
 //@func
 /*

@@ -10,7 +10,7 @@ AR       := ar -rcs
 HGEN     := hgen
 
 # ===== @Packages =====
-PKGS     := error math string system vector test
+PKGS     := error math string system vector
 
 #FIXME: specify packages
 stringV  := alloc util
@@ -27,6 +27,7 @@ define choose_modules
 endef
 
 # ===== Sources & Objects & Include =====
+#FIXME: specify sources
 SRC      := $(wildcard src/**/*.c)
 # SRC      := $(call choose_modules, $(PKGS))
 OBJ      := $(SRC:%.c=%.o)

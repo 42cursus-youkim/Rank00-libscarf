@@ -1,9 +1,10 @@
-#ifndef LIB__TYPES__NUM_H
-# define LIB__TYPES__NUM_H
+#ifndef LIB__TYPES_H
+# define LIB__TYPES_H
 
 # include <stddef.h>
 # include <stdint.h>
 # include <stdbool.h>
+# include <iso646.h>
 
 typedef int8_t		t_i8;
 typedef int16_t		t_i16;
@@ -14,6 +15,8 @@ typedef uint8_t		t_u8;
 typedef uint16_t	t_u16;
 typedef uint32_t	t_u32;
 typedef uint64_t	t_u64;
+
+typedef char *		t_string;
 
 typedef enum e_res
 {

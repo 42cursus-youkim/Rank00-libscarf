@@ -21,7 +21,6 @@
     "*.list": "properties",
     "*.sav": "json",
     "*.lalrpop": "rust",
-    "cerrno": "c",
-    "sstream": "c"
+    "cerrno": "c"
   }
 }
