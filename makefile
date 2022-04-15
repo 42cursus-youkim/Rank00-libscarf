@@ -2,10 +2,7 @@
 NAME     := libft.a
 
 CC       := clang
-CFLAGS   := -Wall -Wextra -Werror -std=c99
-DFLAGS	 := -g3 #-DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address"
-VFLAGS   := --leak-check=full --show-leak-kinds=all \
-			--track-origins=yes
+CFLAGS   := -g3 -Wall -Wextra -Werror -std=c99
 AR       := ar -rcs
 RM       := rm -f
 
@@ -15,23 +12,25 @@ INC      := -I include
 HGEN     := hgen
 
 # ===== @Packages =====
-PKGS     := string error system
+PKGS     := string error system vector
 
-stringV  := new util
+#FIXME: specify packages
+stringV  := alloc util
 errorV   := error
-systemV  := alloc
+systemV  := alloc dalloc write
 
 # ===== Macros =====
 define choose_modules
 	$(foreach pkg, $(1),\
 		$(foreach file, $($(pkg)V),\
-			$(PRE)/lib_$(pkg)/$(file).c\
+			$(PRE)/lib__$(pkg)/$(file).c\
 		)\
 	)
 endef
 
 # ===== Sources & Objects & Include =====
-SRC      := $(call choose_modules, $(PKGS))
+SRC      := $(wildcard src/**/*.c)
+# SRC      := $(call choose_modules, $(PKGS))
 OBJ      := $(SRC:%.c=%.o)
 
 # ===== Rules =====
@@ -39,11 +38,11 @@ OBJ      := $(SRC:%.c=%.o)
 
 %.o: %.c
 	@echo "  $(WU)$(<F)$(R) -> $(E)$(@F)"
-	@$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c -o $@ $<
+	@$(CC) $(CFLAGS) $(INC) -c -o $@ $<
 
 $(NAME): $(OBJ)
 	@$(AR) $@ $^
-	@echo 🗃️ archived with flag $(DFLAGS) $(CFLAGS)
+	@echo 🗃️ archived with flag $(CFLAGS)
 
 all: $(NAME)
 
@@ -65,11 +64,6 @@ docs:
 		done
 
 leak: docs all
-	@$(CC) $(DFLAGS) $(INC) $(NAME) test.c -o test
-	@colour-valgrind $(VFLAGS) ./test
-	@rm test
-
-supp: docs all cls
-	@$(CC) $(DFLAGS) $(INC) $(NAME) tests/test.c -o test
-	@valgrind $(VFLAGS) --gen-suppressions=yes ./test
+	@$(CC)  $(INC) $(NAME) test.c -o test
+	@colour-valgrind ./test
 	@rm test

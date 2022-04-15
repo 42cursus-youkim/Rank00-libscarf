@@ -1,7 +1,12 @@
 {
+  "conventionalCommits.promptBody": true,
+  "conventionalCommits.promptFooter": false,
+  "git.postCommitCommand": "none",
   "files.associations": {
     "**/*.pug": "jade",
     "**/*.h": "c",
+    "**/*.c": "c",
+    "**/*.cpp": "cpp",
     "**/*.html": "html",
     "**/templates/**/*.html": "django-html",
     "**/templates/**/*.css": "css",
@@ -9,9 +14,14 @@
     "*.html": "html",
     "*.xpm": "c",
     "*.h": "c",
+    "*.hpp": "cpp",
     "*.njk": "nunjucks",
     "**/templates/**/*": "django-txt",
     "*.pug": "jade",
-    "cerrno": "c"
+    "*.list": "properties",
+    "*.sav": "json",
+    "*.lalrpop": "rust",
+    "cerrno": "c",
+    "sstream": "c"
   }
 }

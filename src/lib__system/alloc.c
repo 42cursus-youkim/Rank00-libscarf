@@ -1,4 +1,4 @@
-#include "lib_system.h"
+#include "lib__system.h"
 
 //	returns ptr
 void	*lib_memset(void *b, char c, int space)
@@ -27,7 +27,7 @@ void	*lib_calloc(size_t size, size_t count)
 	ptr = malloc(allocated_space);
 	if (!ptr)
 	{
-		error_syscall("lib_calloc");
+		error_syscall("lib__calloc");
 		exit(EXIT_FAILURE);
 	}
 	return (lib_bzero(ptr, allocated_space));

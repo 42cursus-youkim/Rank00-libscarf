@@ -1,5 +1,5 @@
-#ifndef LIB_ERROR_H
-# define LIB_ERROR_H
+#ifndef LIB__ERROR_H
+# define LIB__ERROR_H
 
 # include <errno.h>
 # include "color.h"

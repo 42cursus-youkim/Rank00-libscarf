@@ -1,8 +1,8 @@
-#ifndef LIB_STRING_H
-# define LIB_STRING_H
+#ifndef LIB__STRING_H
+# define LIB__STRING_H
 
 # include <stdlib.h>
-# include "lib_error.h"
+# include "lib__error.h"
 
 typedef char *	t_string;
 

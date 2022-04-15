@@ -1,8 +1,7 @@
-#ifndef LIB_SYSTEM_H
-# define LIB_SYSTEM_H
+#ifndef LIB__SYSTEM_H
+# define LIB__SYSTEM_H
 
-# include <stdlib.h>
-# include "lib_string.h"
+# include "lib__string.h"
 
 //@func
 /*
