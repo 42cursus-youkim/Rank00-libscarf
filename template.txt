@@ -1,5 +1,0 @@
-#ifndef LIB_{package}_H
-# define LIB_{package}_H
-
-//@func
-#endif

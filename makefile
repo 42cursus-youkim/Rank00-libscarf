@@ -35,6 +35,8 @@ SRC      := $(call choose_modules, $(PKGS))
 OBJ      := $(SRC:%.c=%.o)
 
 # ===== Rules =====
+.PHONY: all re clean fclean
+
 %.o: %.c
 	@echo "  $(WU)$(<F)$(R) -> $(E)$(@F)"
 	@$(CC) $(CFLAGS) $(DFLAGS) $(INC) -c -o $@ $<
@@ -62,10 +64,6 @@ docs:
 			$(HGEN) -I include/$$p.h src/$$p 1> /dev/null;\
 		done
 
-test:
-	@$(CC) $(DFLAGS) $(INC) $(NAME) $(TEST).c -o test
-	@./$(TEST)
-
 leak: docs all
 	@$(CC) $(DFLAGS) $(INC) $(NAME) test.c -o test
 	@colour-valgrind $(VFLAGS) ./test
@@ -75,5 +73,3 @@ supp: docs all cls
 	@$(CC) $(DFLAGS) $(INC) $(NAME) tests/test.c -o test
 	@valgrind $(VFLAGS) --gen-suppressions=yes ./test
 	@rm test
-
-.PHONY: all re clean fclean test red docs
