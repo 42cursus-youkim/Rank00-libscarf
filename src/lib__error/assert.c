@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include "lib__string.h"
 #include "lib__color.h"
@@ -9,7 +10,7 @@
  */
 void	lib__assert(bool expr, const t_string name)
 {
-	printf(CYN "testing case " WHT "%s" MAG ":", name);
+	printf(CYN "test " WHT "{ %s } ", name);
 	if (expr)
 		printf(BGRN "OK!\n" END);
 	else

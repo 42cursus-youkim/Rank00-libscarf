@@ -1,7 +1,8 @@
 #include <unistd.h>
 #include <string.h>
-#include "lib__error.h"
+#include <errno.h>
 #include "lib__system.h"
+#include "lib__color.h"
 
 t_res	lib__error__syscall(char *category)
 {
