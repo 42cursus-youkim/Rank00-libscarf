@@ -2,17 +2,15 @@
 NAME     := libft.a
 
 CC       := clang
-CFLAGS   := -g3 -Wall -Wextra -Werror -std=c99
+CFLAGS   := -Wall -Wextra -Werror -std=c99	\
+						-I include -I include/types			\
+						-g3
+
 AR       := ar -rcs
-RM       := rm -f
-
-PRE      := src
-INC      := -I include
-
 HGEN     := hgen
 
 # ===== @Packages =====
-PKGS     := string error system vector
+PKGS     := error math string system vector
 
 #FIXME: specify packages
 stringV  := alloc util
@@ -23,7 +21,7 @@ systemV  := alloc dalloc write
 define choose_modules
 	$(foreach pkg, $(1),\
 		$(foreach file, $($(pkg)V),\
-			$(PRE)/lib__$(pkg)/$(file).c\
+			src/lib__$(pkg)/$(file).c\
 		)\
 	)
 endef
@@ -38,7 +36,7 @@ OBJ      := $(SRC:%.c=%.o)
 
 %.o: %.c
 	@echo "  $(WU)$(<F)$(R) -> $(E)$(@F)"
-	@$(CC) $(CFLAGS) $(INC) -c -o $@ $<
+	@$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJ)
 	@$(AR) $@ $^
@@ -47,11 +45,11 @@ $(NAME): $(OBJ)
 all: $(NAME)
 
 clean:
-	@$(RM) $(OBJ)
+	@rm -f $(OBJ)
 	@echo "cleaned $(NAME)'s object files"
 
 fclean: clean
-	@$(RM) $(NAME)
+	@rm -f $(NAME)
 	@echo 🗑 cleaned $(NAME)
 
 re: fclean all
@@ -60,10 +58,15 @@ re: fclean all
 docs:
 	@set -e;\
 		for p in $(PKGS); do\
-			$(HGEN) -I include/$$p.h src/$$p 1> /dev/null;\
+			$(HGEN) -I include/lib__$$p.h src/lib__$$p 1> /dev/null;\
 		done
 
 leak: docs all
-	@$(CC)  $(INC) $(NAME) test.c -o test
+	@$(CC) $(NAME) test.c -o test
 	@colour-valgrind ./test
+	@rm test
+
+test: docs all
+	@$(CC) $(NAME) test/main.c -o test
+	@./test
 	@rm test
