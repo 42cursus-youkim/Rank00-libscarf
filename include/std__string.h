@@ -3,6 +3,7 @@
 
 # include "std__error.h"
 # include "std__types.h"
+# include "std__types__error.h"
 
 //@func
 /*
@@ -23,6 +24,7 @@ bool					str__is_equal(t_string_ref s1, t_string_ref s2);
 ** < convert.c > */
 
 t_string				str__new_from_int(int num);
+t_int_res				str__to_int(t_string_ref str);
 /*
 ** < find.c > */
 

@@ -12,7 +12,7 @@
 t_non_neg_int_or_err	str__find_first_of(
 		t_string_ref this, t_string_ref charset)
 {
-	t_uint				i;
+	t_uint	i;
 
 	if (not charset)
 		return (ERR);
@@ -34,7 +34,7 @@ t_non_neg_int_or_err	str__find_first_of(
 t_non_neg_int_or_err	str__find_first_not_of(
 		t_string_ref this, t_string_ref charset)
 {
-	t_uint				i;
+	t_uint	i;
 
 	if (not charset)
 		return (ERR);

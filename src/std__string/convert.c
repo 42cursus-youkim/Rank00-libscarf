@@ -3,6 +3,8 @@
 #include "std__string.h"
 #include "std__system.h"
 
+#define INT_MIN_ABS 2147483648
+
 t_string	str__new_from_int(int num)
 {
 	t_string	str;
@@ -27,30 +29,30 @@ t_string	str__new_from_int(int num)
 	return (str);
 }
 
-// t_int_res	str__to_int(t_string_ref str)
-// {
-// 	int			i;
-// 	int			sign;
-// 	t_i64		num;
-// 	t_int_res	result;
+t_int_res	str__to_int(t_string_ref str)
+{
+	int			i;
+	int			sign;
+	t_i64		num;
 
-// 	num = 0;
-// 	sign = 1;
-// 	result.err = ERR;
-// 	if (!str)
-// 		return (result);
-// 	i = str__find_first_not_of(str, " \t\n\v\f\r");
-// 	if (i == ERR)
-// 		return ((t_int_res){ERR, UNSET});
-// 	if (str__is_in("-+", str[i]) and str[i++] == '-')
-// 		sign = -1;
-// 	while (is_digit(str[i]))
-// 	{
-// 		num = num * 10 + (str[i++] - '0');
-// 		if (num > INT_MAX or num < INT_MIN)
-// 			return (result);
-// 	}
-// 	if (str[i])
-
-// 	return result;
-// }
+	num = 0;
+	sign = 1;
+	if (!str)
+		return ((t_int_res){ERR, 0});
+	i = str__find_first_not_of(str, " \t\n\v\f\r");
+	if (i == ERR)
+		return ((t_int_res){ERR, 0});
+	if (str__is_in("-+", str[i]))
+		if (str[i++] == '-')
+			sign = -1;
+	while (is_digit(str[i]))
+	{
+		num = 10 * num + (str[i++] - '0');
+		if ((sign == 1 and num > INT_MAX)
+			or (sign == -1 and num > INT_MIN_ABS))
+			return ((t_int_res){ERR, 0});
+	}
+	if (str[i] == '\0')
+		return ((t_int_res){OK, sign * num});
+	return ((t_int_res){ERR, ERR});
+}

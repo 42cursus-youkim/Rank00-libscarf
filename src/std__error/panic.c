@@ -44,7 +44,6 @@ void	std__panic(t_string_ref what)
 	exit(EXIT_FAILURE);
 }
 
-//TODO: atoi
 void	std__panic__index(t_string_ref where, t_string_ref what, int index)
 {
 	t_string	index_str;

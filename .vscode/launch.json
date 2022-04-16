@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "name": "Launch",
+      "type": "lldb",
+      "request": "launch",
+      "program": "${workspaceFolder}/test/test.out",
+      "args": []
+    }
+  ]
+}

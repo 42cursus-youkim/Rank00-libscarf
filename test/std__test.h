@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include "std__color.h"
 #include "std__types.h"
+#include "std__types__error.h"
 
 void test__header(t_string_ref text)
 {

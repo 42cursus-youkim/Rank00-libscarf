@@ -32,16 +32,13 @@ void	test__string__is_equal(void)
 
 void	test__string__find(void)
 {
-	test__header("str::find");
+	test__header("str::find related");
+	test__subject("str::find");
 	TEST__ASSERT_EQ(str__find("hello world", "hello"), 0);
 	TEST__ASSERT_EQ(str__find("hello world", "world"), 6);
 	TEST__ASSERT_EQ(str__find("hello world", "bye"), ERR);
 	TEST__ASSERT_EQ(str__find("hello world", ""), 0);
 	TEST__ASSERT_EQ(str__find("hello world", NULL), ERR);
-}
-
-void	test__string__find_of(void)
-{
 	test__subject("str::find_first_of");
 	TEST__ASSERT_EQ(str__find_first_of("hello world", "abc"), ERR);
 	TEST__ASSERT_EQ(str__find_first_of("hello world", "def"), 1);
@@ -55,13 +52,29 @@ void	test__string__find_of(void)
 	TEST__ASSERT_EQ(str__find_first_not_of("hello world", NULL), ERR);
 }
 
+void	test__string__conversion(void)
+{
+	test__header("str::conversion");
+	test__subject("str__to_int");
+	TEST__ASSERT_EQ(str__to_int("123").num, 123);
+	TEST__ASSERT_EQ(str__to_int("-123").num, -123);
+	TEST__ASSERT_EQ(str__to_int("123a").err, ERR);
+	TEST__ASSERT_EQ(str__to_int("a123").err, ERR);
+	test__subject("int min/max");
+	TEST__ASSERT_EQ(str__to_int("2147483647").num, 2147483647);
+	TEST__ASSERT_EQ(str__to_int("-2147483648").num, -2147483648);
+	test__subject("integer overflow");
+	TEST__ASSERT_EQ(str__to_int("2147483648").err, ERR);
+	TEST__ASSERT_EQ(str__to_int("-2147483649").err, ERR);
+}
+
 int	main(void)
 {
 	test__string__cmp();
 	test__string__len();
 	test__string__is_equal();
 	test__string__find();
-	test__string__find_of();
+	test__string__conversion();
 
 	t_string str = str__new("hello world");
 	str__delete(&str);
