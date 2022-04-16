@@ -7,7 +7,7 @@
  * @param other the sequence to search for.
  * @return index of string if found, ERR (-1) if not found
  */
-t_non_neg_int_or_err	str__find(t_string_ref this, t_string_ref other)
+t_int_or_neg_as_err	str__find(t_string_ref this, t_string_ref other)
 {
 	t_i64		i;
 	const int	this_len = str__len(this);

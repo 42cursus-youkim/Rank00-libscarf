@@ -23,6 +23,13 @@ void test__subject(t_string_ref text)
     printf(HWHT "{ " BBLU #left " == " #right HWHT " } " BGRN " OK!" END "\n");\
   } while (0);
 
+#define TEST__ASSERT_EQ_FREE(left, right)                                      \
+  do {                                                                         \
+    assert(left == right);                                                     \
+    printf(HWHT "{ " BBLU #left " == " #right HWHT " } " BGRN " OK!" END "\n");\
+	free(left);                                                                \
+  } while (0);
+
 #define TEST__ASSERT_EXPR(expr)                                \
   do {                                                         \
     assert(expr);                                              \

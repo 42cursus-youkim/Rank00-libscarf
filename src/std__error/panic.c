@@ -44,6 +44,13 @@ void	std__panic(t_string_ref what)
 	exit(EXIT_FAILURE);
 }
 
+void	std__panic__null(t_string_ref where)
+{
+	std__panic_write_internal((t_string_ref[]){
+		where, " is NULL", NULL});
+	exit(EXIT_FAILURE);
+}
+
 void	std__panic__index(t_string_ref where, t_string_ref what, int index)
 {
 	t_string	index_str;

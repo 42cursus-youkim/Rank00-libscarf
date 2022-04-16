@@ -9,7 +9,7 @@
  * then the string will be searched for any of first occurance of a, b, c, d.
  * @return index of string if found, ERR (-1) if not found
  */
-t_non_neg_int_or_err	str__find_first_of(
+t_int_or_neg_as_err	str__find_first_of(
 		t_string_ref this, t_string_ref charset)
 {
 	t_uint	i;
@@ -31,7 +31,7 @@ t_non_neg_int_or_err	str__find_first_of(
  * @param charset
  * @return index of string if found, ERR (-1) if not found
  */
-t_non_neg_int_or_err	str__find_first_not_of(
+t_int_or_neg_as_err	str__find_first_not_of(
 		t_string_ref this, t_string_ref charset)
 {
 	t_uint	i;

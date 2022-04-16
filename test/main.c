@@ -72,6 +72,11 @@ void	test__string__find(void)
 	TEST__ASSERT_EQ(str__find_first_not_of("hello world", ""), 0);
 	TEST__ASSERT_EQ(str__find_first_not_of("hello world", "hello world"), ERR);
 	TEST__ASSERT_EQ(str__find_first_not_of("hello world", NULL), ERR);
+	test__subject("str::at");
+	TEST__ASSERT_EQ(str__at("hello world", 0), 'h');
+	TEST__ASSERT_EQ(str__at("hello world", 1), 'e');
+	TEST__ASSERT_EQ(str__at("hello world", -1), 'd');
+	TEST__ASSERT_EQ(str__at("hello world", -2), 'l');
 }
 
 void	test__string__conversion(void)
@@ -90,6 +95,15 @@ void	test__string__conversion(void)
 	TEST__ASSERT_EQ(str__to_int("-2147483649").err, ERR);
 }
 
+void	test__string__substr(void)
+{
+	test__header("str::substr");
+	TEST__ASSERT_EXPR(str__is_equal(str__new_substr("hello world", 0, 5), "hello"));
+	TEST__ASSERT_EXPR(str__is_equal(str__new_substr("hello world", 6, 5), "world"));
+	TEST__ASSERT_EXPR(str__is_equal(
+			str__new_substr("hello world", 0, -1), "hello world"));
+}
+
 int	main(void)
 {
 	test__string__cmp();
@@ -97,6 +111,7 @@ int	main(void)
 	test__string__is_equal();
 	test__string__find();
 	test__string__conversion();
+	test__string__substr();
 	test__malloc();
 
 	// t_string str = str__new("hello world");

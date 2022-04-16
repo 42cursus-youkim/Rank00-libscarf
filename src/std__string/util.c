@@ -6,7 +6,7 @@
  * @param this the string to get the length of.
  * @return ERR (-1) if the string is NULL, the length of the string otherwise.
  */
-t_non_neg_int_or_err	str__len(t_string_ref this)
+t_int_or_neg_as_err	str__len(t_string_ref this)
 {
 	int	i;
 
@@ -16,4 +16,9 @@ t_non_neg_int_or_err	str__len(t_string_ref this)
 	while (this[i])
 		i++;
 	return (i);
+}
+
+bool	str__is_empty(t_string_ref this)
+{
+	return (str__len(this) == 0);
 }

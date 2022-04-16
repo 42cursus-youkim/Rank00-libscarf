@@ -15,7 +15,7 @@ void	str__append(t_string *this_ptr, t_string_ref src)
 	const int	src_len = str__len(src);
 	const int	new_len = old_len + src_len;
 
-	new = std__calloc(new_len + 1, sizeof(char));
+	new = std__allocate(new_len, sizeof(char));
 	i = -1;
 	while (++i < old_len)
 		new[i] = (*this_ptr)[i];

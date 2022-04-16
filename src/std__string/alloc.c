@@ -14,10 +14,24 @@ t_string	str__new(t_string_ref from)
 	t_string	new;
 	const t_i32	len = str__len(from);
 
-	new = std__calloc(len, sizeof(char));
+	new = str__new_size(len);
 	i = -1;
 	while (++i < len)
 		new[i] = from[i];
+	return (new);
+}
+
+/**
+ * @brief create a uninitialized string of given length.
+ *
+ * @param size
+ * @return t_string
+ */
+t_string	str__new_size(t_uint size)
+{
+	t_string	new;
+
+	new = std__allocate(size, sizeof(char));
 	return (new);
 }
 

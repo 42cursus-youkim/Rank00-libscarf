@@ -27,6 +27,7 @@
     "sstream": "c",
     "ratio": "c",
     "system_error": "c",
-    "ios": "c"
+    "ios": "c",
+    "chrono": "c"
   }
 }
