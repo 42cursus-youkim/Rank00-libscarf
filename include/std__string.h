@@ -9,7 +9,7 @@
 ** < alloc.c > */
 
 t_string				str__new(t_string_ref from);
-void					str__delete(t_string this);
+void					str__delete(t_string *this_ptr);
 /*
 ** < append.c > */
 

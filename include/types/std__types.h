@@ -26,14 +26,15 @@ typedef enum e_res
 {
 	OK,
 	ERR = -1,
+	UNSET = -2,
 }	t_res;
 
 typedef int			t_non_neg_int_or_err;
 
-typedef struct s_int_result
+typedef struct s_int_res
 {
 	t_res		err;
 	int			result;
-}	t_int_result;
+}	t_int_res;
 
 #endif

@@ -55,5 +55,11 @@ int	main(void)
 	test__string__len();
 	test__string__is_equal();
 	test__string__find();
+
+	t_string str = str__new("hello world");
+	str__delete(&str);
+	TEST__ASSERT_EQ(str, NULL);
+	std__panic__index("str__new", 4);
+	std__panic("str__new");
 	return (0);
 }

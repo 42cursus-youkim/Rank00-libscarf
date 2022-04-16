@@ -26,8 +26,7 @@ t_string	str__new(t_string_ref from)
  *
  * @param this the string to delete.
  */
-void	str__delete(t_string this)
+void	str__delete(t_string *this_ptr)
 {
-	free(this);
-	this = NULL;
+	std__dealloc((void **)this_ptr);
 }

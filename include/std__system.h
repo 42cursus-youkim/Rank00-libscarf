@@ -8,7 +8,8 @@
 ** < alloc.c > */
 
 void	*std__calloc(size_t count, size_t size);
-void	std__dealloc(void *ptr);
+void	*std__malloc(size_t count, size_t size);
+void	std__dealloc(void **ptr_ptr);
 /*
 ** < mem.c > */
 

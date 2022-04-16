@@ -4,27 +4,54 @@
 #include <stdlib.h>
 #include "std__system.h"
 #include "std__color.h"
+#include "std__string.h"
+
+
+void	std__panic_write_internal(
+	t_string_ref arr[])
+{
+	int		i;
+
+	if (arr)
+		std__writes(STDERR_FILENO, (t_string_ref[]){
+			BHRED "panic " BMAG "@", arr[0], HRED, NULL});
+	else
+	{
+		std__write(STDERR_FILENO,
+			BHRED "panic " BMAG
+			"@std__panic_write_internal : arr is NULL\n" END);
+		exit(EXIT_FAILURE);
+	}
+	i = 0;
+	while (arr[++i])
+		std__writes(STDERR_FILENO, (t_string_ref[]){
+			": ", arr[i], END, NULL});
+	std__write(STDERR_FILENO, END "\n");
+}
 
 void	std__panic__syscall(t_string_ref category)
 {
-	std__writes(STDERR_FILENO, (t_string_ref[]){
-		BHRED, category, ": ", strerror(errno), END "\n", NULL});
+	std__panic_write_internal((t_string_ref[]){
+		category, strerror(errno), NULL});
 	exit(EXIT_FAILURE);
 }
 
 // prints error and exits program
 void	std__panic(t_string_ref what)
 {
-	std__writes(STDERR_FILENO, (t_string_ref[]){
-		BHRED, "panic: ", what, END "\n", NULL});
+	std__panic_write_internal((t_string_ref[]){
+		what, NULL});
 	exit(EXIT_FAILURE);
 }
 
 //TODO: atoi
-void	std__panic__index(t_string what, int index)
+void	std__panic__index(t_string where, int index)
 {
-	(void)index;
-	std__writes(STDERR_FILENO, (t_string_ref[]){
-		BHRED, "panic: ", what, ": index out of range: ", NULL});
+	t_string	index_str;
+
+	index_str = str__new_from_int(index);
+	std__panic_write_internal((t_string_ref[]){
+		where, "index out of range", index_str, NULL});
+	str__delete(&index_str);
 	exit(EXIT_FAILURE);
 }

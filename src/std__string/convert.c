@@ -1,4 +1,6 @@
+#include "std__math.h"
 #include "std__string.h"
+#include "std__system.h"
 
 t_string	str__new_from_int(int num)
 {
@@ -7,7 +9,7 @@ t_string	str__new_from_int(int num)
 
 	if (num == 0)
 		return (str__new("0"));
-	digit = ft_digit_len(num);
+	digit = math__digit_len(num);
 	if (num < 0)
 		digit++;
 	str = std__calloc(sizeof(char), digit);
@@ -24,7 +26,7 @@ t_string	str__new_from_int(int num)
 	return (str);
 }
 
-// t_int_result	str__to_int(t_string_ref str, int n)
+// t_int_res	str__to_int(t_string_ref str, int *n)
 // {
 // 	int		i;
 // 	int		sign;
@@ -35,7 +37,7 @@ t_string	str__new_from_int(int num)
 // 	num = 0;
 // 	sign = 1;
 // 	if (!str)
-// 		return ((t_int_result){ERR, 0});
+// 		return ((t_int_res){ERR, UNSET});
 // 	while (ft_strchr_i("\t\n\v\f\r ", str[i]) >= 0)
 // 		i++;
 // 	if (ft_strchr_i("-+", str[i]) >= 0 && str[i++] == '-')

@@ -22,8 +22,5 @@ bool	is_overflow(int num, int sign);
 
 int		math__max(int a, int b);
 int		math__min(int a, int b);
-/*
-** < util.c > */
-
-int		math__digits(int num);
+int		math__digit_len(int num);
 #endif

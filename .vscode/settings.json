@@ -25,6 +25,7 @@
     "__locale": "c",
     "locale": "c",
     "sstream": "c",
-    "ratio": "c"
+    "ratio": "c",
+    "system_error": "c"
   }
 }
