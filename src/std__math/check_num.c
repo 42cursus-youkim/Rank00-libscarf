@@ -1,0 +1,11 @@
+#include <stdbool.h>
+
+bool	is_digit(char c)
+{
+	return ('0' <= c && c <= '9');
+}
+
+bool	is_overflow(int num, int sign)
+{
+	return ((sign == -1 && num > 0) || (sign == 1 && num < 0));
+}

@@ -1,31 +1,28 @@
-// #include "std__string.h"
+#include "std__string.h"
 
-//TODO: implement
-// t_string	str__new_from_int(int n)
-// {
-// 	t_string	str;
-// 	int			digit;
-// 	long		num;
+t_string	str__new_from_int(int num)
+{
+	t_string	str;
+	int			digit;
 
-// 	num = n;
-// 	if (num == 0)
-// 		return (str__new("0"));
-// 	digit = ft_digit_len(num);
-// 	if (num < 0)
-// 		digit++;
-// 	str = std__calloc(sizeof(char), digit);
-// 	if (num < 0)
-// 	{
-// 		num = -num;
-// 		str[0] = '-';
-// 	}
-// 	while (num > 0)
-// 	{
-// 		str[--digit] = '0' + (num % 10);
-// 		num /= 10;
-// 	}
-// 	return (str);
-// }
+	if (num == 0)
+		return (str__new("0"));
+	digit = ft_digit_len(num);
+	if (num < 0)
+		digit++;
+	str = std__calloc(sizeof(char), digit);
+	if (num < 0)
+	{
+		num = -num;
+		str[0] = '-';
+	}
+	while (num > 0)
+	{
+		str[--digit] = '0' + (num % 10);
+		num /= 10;
+	}
+	return (str);
+}
 
 // t_int_result	str__to_int(t_string_ref str, int n)
 // {

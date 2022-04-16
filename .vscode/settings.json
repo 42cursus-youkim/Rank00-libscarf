@@ -24,6 +24,7 @@
     "cerrno": "c",
     "__locale": "c",
     "locale": "c",
-    "sstream": "c"
+    "sstream": "c",
+    "ratio": "c"
   }
 }

@@ -40,6 +40,15 @@ void	test__string__find(void)
 	TEST__ASSERT_EQ(str__find("hello world", NULL), ERR);
 }
 
+void	test__string__find_first_of(void)
+{
+	test__header("str::find_first_of");
+	TEST__ASSERT_EQ(str__find_first_of("hello world", "abc"), 0);
+	TEST__ASSERT_EQ(str__find_first_of("hello world", "def"), ERR);
+	TEST__ASSERT_EQ(str__find_first_of("hello world", ""), ERR);
+	TEST__ASSERT_EQ(str__find_first_of("hello world", NULL), ERR);
+}
+
 int	main(void)
 {
 	test__string__cmp();

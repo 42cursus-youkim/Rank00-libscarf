@@ -62,12 +62,11 @@ docs:
 			$(HGEN) -I include/std__$$p.h src/std__$$p 1> /dev/null;\
 		done
 
-test: docs all
-	@$(CC) $(NAME) $(CFLAGS) test/main.c -o test/test.out
-	@./test/test.out
-	@rm test/test.out
+test_make: docs all
+	@$(CC) $(NAME) $(CFLAGS) $(wildcard test/*.c) -o test/test.out
 
-leak: docs all
-	@$(CC) $(NAME) $(CFLAGS) test/main.c -o test/test.out
+test: test_make
+	@./test/test.out
+
+leak: test_make
 	@colour-valgrind ./test/test.out
-	@rm test/test.out

@@ -20,6 +20,10 @@ void					str__append(t_string *this_ptr, t_string_ref src);
 int						str__ncmp(t_string_ref s1, t_string_ref s2, int n);
 bool					str__is_equal(t_string_ref s1, t_string_ref s2);
 /*
+** < convert.c > */
+
+t_string				str__new_from_int(int num);
+/*
 ** < find.c > */
 
 t_non_neg_int_or_err	str__find_first_of(t_string_ref this,
