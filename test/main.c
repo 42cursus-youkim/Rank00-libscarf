@@ -2,6 +2,28 @@
 #include <assert.h>
 #include "std__test.h"
 #include "std__string.h"
+#include "std__system.h"
+
+void	test__malloc(void)
+{
+	test__header("malloc NULL terminates last element");
+	for (int i = 0; i < 128; i++)
+	{
+		char *char_ptr = std__allocate(i, sizeof(char));
+		// for (int j = 0; char_ptr[j]; j++)
+		assert(char_ptr[i] == '\0');
+		std__dealloc((void **)&char_ptr);
+		int *int_ptr = std__allocate(i, sizeof(int));
+		// for (int j = 0; int_ptr[j]; j++);
+		assert(int_ptr[i] == '\0');
+		std__dealloc((void **)&int_ptr);
+		float *float_ptr = std__allocate(i, sizeof(float));
+		// for (int j = 0; float_ptr[j]; j++);
+		assert(float_ptr[i] == '\0');
+		std__dealloc((void **)&float_ptr);
+	}
+	test__subject("done.");
+}
 
 void	test__string__cmp(void)
 {
@@ -75,11 +97,12 @@ int	main(void)
 	test__string__is_equal();
 	test__string__find();
 	test__string__conversion();
+	test__malloc();
 
-	t_string str = str__new("hello world");
-	str__delete(&str);
-	TEST__ASSERT_EQ(str, NULL);
-	str__at("hello", 20);
-	std__panic("str__new");
+	// t_string str = str__new("hello world");
+	// str__delete(&str);
+	// TEST__ASSERT_EQ(str, NULL);
+	// str__at("hello", 20);
+	// std__panic("str__new");
 	return (0);
 }
