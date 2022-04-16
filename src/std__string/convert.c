@@ -1,3 +1,4 @@
+#include <limits.h>
 #include "std__math.h"
 #include "std__string.h"
 #include "std__system.h"
@@ -26,31 +27,30 @@ t_string	str__new_from_int(int num)
 	return (str);
 }
 
-// t_int_res	str__to_int(t_string_ref str, int *n)
+// t_int_res	str__to_int(t_string_ref str)
 // {
-// 	int		i;
-// 	int		sign;
-// 	t_i64	num;
-// 	t_i64	temp;
+// 	int			i;
+// 	int			sign;
+// 	t_i64		num;
+// 	t_int_res	result;
 
-// 	i = 0;
 // 	num = 0;
 // 	sign = 1;
+// 	result.err = ERR;
 // 	if (!str)
+// 		return (result);
+// 	i = str__find_first_not_of(str, " \t\n\v\f\r");
+// 	if (i == ERR)
 // 		return ((t_int_res){ERR, UNSET});
-// 	while (ft_strchr_i("\t\n\v\f\r ", str[i]) >= 0)
-// 		i++;
-// 	if (ft_strchr_i("-+", str[i]) >= 0 && str[i++] == '-')
+// 	if (str__is_in("-+", str[i]) and str[i++] == '-')
 // 		sign = -1;
 // 	while (is_digit(str[i]))
 // 	{
-// 		temp = num * 10 + (str[i++] - '0');
-// 		if (overflow_saturation(temp, num, sign, n) == OK)
-// 			return (OK);
-// 		num = temp;
+// 		num = num * 10 + (str[i++] - '0');
+// 		if (num > INT_MAX or num < INT_MIN)
+// 			return (result);
 // 	}
-// 	*n = sign * (int)num;
 // 	if (str[i])
-// 		return (ERR);
-// 	return (OK);
+
+// 	return result;
 // }

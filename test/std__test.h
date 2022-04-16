@@ -16,10 +16,10 @@ void test__subject(t_string_ref text)
 	printf(MAG "  [ case " BCYN "%s" MAG " ]\n" END, text);
 }
 
-#define TEST__ASSERT_EQ(left, right)                                         \
-  do {                                                                       \
-    assert(left == right);                                                   \
-    printf(HWHT "{ " BBLU #left " == " #right HWHT " } " BGRN " OK!\n" END); \
+#define TEST__ASSERT_EQ(left, right)                                           \
+  do {                                                                         \
+    assert(left == right);                                                     \
+    printf(HWHT "{ " BBLU #left " == " #right HWHT " } " BGRN " OK!" END "\n");\
   } while (0);
 
 #define TEST__ASSERT_EXPR(expr)                                \

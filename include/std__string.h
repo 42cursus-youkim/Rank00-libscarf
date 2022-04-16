@@ -26,9 +26,14 @@ t_string				str__new_from_int(int num);
 /*
 ** < find.c > */
 
+t_non_neg_int_or_err	str__find(t_string_ref this, t_string_ref other);
+/*
+** < find_of.c > */
+
 t_non_neg_int_or_err	str__find_first_of(t_string_ref this,
 							t_string_ref charset);
-t_non_neg_int_or_err	str__find(t_string_ref this, t_string_ref other);
+t_non_neg_int_or_err	str__find_first_not_of(t_string_ref this,
+							t_string_ref charset);
 /*
 ** < index.c > */
 
