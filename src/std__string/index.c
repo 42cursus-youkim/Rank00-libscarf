@@ -10,11 +10,7 @@
 t_u8	str__at(t_string_ref this, const t_uint index)
 {
 	if (index >= (t_uint)str__len(this))
-	{
-		printf("tried to access index %d of string %s"
-			" but it only has %d characters.\n", index, this, str__len(this));
-		std__panic("str__at: index out of bounds");
-	}
+		std__panic__index("str__at", this, index);
 	return (this[index]);
 }
 

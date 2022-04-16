@@ -59,7 +59,7 @@ int	main(void)
 	t_string str = str__new("hello world");
 	str__delete(&str);
 	TEST__ASSERT_EQ(str, NULL);
-	std__panic__index("str__new", 4);
+	str__at("hello", 20);
 	std__panic("str__new");
 	return (0);
 }

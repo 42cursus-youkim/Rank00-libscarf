@@ -25,7 +25,7 @@ void	std__panic_write_internal(
 	i = 0;
 	while (arr[++i])
 		std__writes(STDERR_FILENO, (t_string_ref[]){
-			": ", arr[i], END, NULL});
+			": ", arr[i], NULL});
 	std__write(STDERR_FILENO, END "\n");
 }
 
@@ -45,13 +45,13 @@ void	std__panic(t_string_ref what)
 }
 
 //TODO: atoi
-void	std__panic__index(t_string where, int index)
+void	std__panic__index(t_string_ref where, t_string_ref what, int index)
 {
 	t_string	index_str;
 
 	index_str = str__new_from_int(index);
 	std__panic_write_internal((t_string_ref[]){
-		where, "index out of range", index_str, NULL});
+		where, "while indexing", what, "index out of range", index_str, NULL});
 	str__delete(&index_str);
 	exit(EXIT_FAILURE);
 }
