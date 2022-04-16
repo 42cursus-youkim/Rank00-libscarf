@@ -1,4 +1,4 @@
-#include "lib__string.h"
+#include "std__string.h"
 
 int	str__len(const t_string this)
 {

@@ -1,6 +1,6 @@
 #include <stdlib.h>
-#include "lib__string.h"
-#include "lib__system.h"
+#include "std__string.h"
+#include "std__system.h"
 
 //	creates a new string, identical to src to heap and returns it.
 t_string	str__new(const t_string from)
@@ -9,7 +9,7 @@ t_string	str__new(const t_string from)
 	t_string	new;
 	const t_i32	len = str__len(from);
 
-	new = lib__calloc(sizeof(char), len);
+	new = std__calloc(sizeof(char), len);
 	i = -1;
 	while (++i < len)
 		new[i] = from[i];

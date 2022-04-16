@@ -1,5 +1,5 @@
-#ifndef LIB__COLOR_H
-# define LIB__COLOR_H
+#ifndef STD__COLOR_H
+# define STD__COLOR_H
 
 //	===== Regular text =====
 # define BLK "\001\e[0;30\002m"

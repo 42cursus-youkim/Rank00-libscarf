@@ -1,5 +1,5 @@
-#ifndef LIB__VECTOR_H
-# define LIB__VECTOR_H
+#ifndef STD__VECTOR_H
+# define STD__VECTOR_H
 
 typedef struct s_vec
 {

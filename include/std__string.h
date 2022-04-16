@@ -1,8 +1,8 @@
-#ifndef LIB__STRING_H
-# define LIB__STRING_H
+#ifndef STD__STRING_H
+# define STD__STRING_H
 
-# include "lib__error.h"
-# include "lib__types.h"
+# include "std__error.h"
+# include "std__types.h"
 
 //@func
 /*

@@ -1,5 +1,5 @@
-#ifndef LIB__TYPES_H
-# define LIB__TYPES_H
+#ifndef STD__TYPES_H
+# define STD__TYPES_H
 
 # include <stddef.h>
 # include <stdint.h>

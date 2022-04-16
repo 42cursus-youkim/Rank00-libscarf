@@ -1,4 +1,4 @@
-#include "lib__string.h"
+#include "std__string.h"
 
 /** @brief Compare two strings. use str__is_equal() instead.
  *  @return n1 - n2 of first non-matching char || 0 (leached end) */

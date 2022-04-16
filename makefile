@@ -21,7 +21,7 @@ systemV  := alloc dalloc write
 define choose_modules
 	$(foreach pkg, $(1),\
 		$(foreach file, $($(pkg)V),\
-			src/lib__$(pkg)/$(file).c\
+			src/std__$(pkg)/$(file).c\
 		)\
 	)
 endef
@@ -59,7 +59,7 @@ re: fclean all
 docs:
 	@set -e;\
 		for p in $(PKGS); do\
-			$(HGEN) -I include/lib__$$p.h src/lib__$$p 1> /dev/null;\
+			$(HGEN) -I include/std__$$p.h src/std__$$p 1> /dev/null;\
 		done
 
 leak: docs all

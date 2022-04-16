@@ -1,9 +1,9 @@
 #include <stdlib.h>
-#include "lib__system.h"
-#include "lib__error.h"
+#include "std__system.h"
+#include "std__error.h"
 
 //	returns ptr
-void	*lib__memset(void *b, char c, int space)
+void	*std__memset(void *b, char c, int space)
 {
 	int		i;
 	char	*ptr;
@@ -16,12 +16,12 @@ void	*lib__memset(void *b, char c, int space)
 }
 
 //	returns ptr set to 0
-void	*lib__bzero(void *ptr, int n)
+void	*std__bzero(void *ptr, int n)
 {
-	return (lib__memset(ptr, '\0', n));
+	return (std__memset(ptr, '\0', n));
 }
 
-void	*lib__calloc(size_t size, size_t count)
+void	*std__calloc(size_t size, size_t count)
 {
 	char			*ptr;
 	const size_t	allocated_space = size * (count + 1);
@@ -29,8 +29,8 @@ void	*lib__calloc(size_t size, size_t count)
 	ptr = malloc(allocated_space);
 	if (!ptr)
 	{
-		lib__error__syscall("lib__calloc");
+		std__panic__syscall("std__calloc");
 		exit(EXIT_FAILURE);
 	}
-	return (lib__bzero(ptr, allocated_space));
+	return (std__bzero(ptr, allocated_space));
 }

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <assert.h>
-#include "lib__test.h"
-#include "lib__string.h"
+#include "std__test.h"
+#include "std__string.h"
 
 void	test__string__cmp(void)
 {

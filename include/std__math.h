@@ -1,5 +1,5 @@
-#ifndef LIB__MATH_H
-# define LIB__MATH_H
+#ifndef STD__MATH_H
+# define STD__MATH_H
 
 //@func
 /*

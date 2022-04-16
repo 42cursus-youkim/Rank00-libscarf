@@ -1,9 +1,9 @@
-#ifndef LIB__TEST_H
-#define LIB__TEST_H
+#ifndef STD__TEST_H
+#define STD__TEST_H
 
 #include <stdio.h>
-#include "lib__color.h"
-#include "lib__types.h"
+#include "std__color.h"
+#include "std__types.h"
 
 void test__header(const t_string text)
 {
