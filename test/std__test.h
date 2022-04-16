@@ -5,13 +5,13 @@
 #include "std__color.h"
 #include "std__types.h"
 
-void test__header(const t_string text)
+void test__header(t_string_ref text)
 {
 	printf(BHYEL "\n----------------------------------------\n");
 	printf("[[[ Testing " BBLU "%s" BHYEL " ]]]\n", text);
 }
 
-void test__subject(const t_string text)
+void test__subject(t_string_ref text)
 {
 	printf(MAG "  [ case " BCYN "%s" MAG " ]\n" END, text);
 }

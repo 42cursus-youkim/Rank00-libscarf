@@ -6,11 +6,11 @@
 void	test__string__cmp(void)
 {
 	test__header("string::cmp");
-	TEST__ASSERT_EQ(str__cmp("abc", "abc", 3), 0);
-	TEST__ASSERT_EQ(str__cmp("abc", "abcd", 3), 0);
-	TEST__ASSERT_EQ(str__cmp("abc", "abb", 3), 1);
-	TEST__ASSERT_EQ(str__cmp("abb", "abc", 3), -1);
-	TEST__ASSERT_EQ(str__cmp("abcd", "abc", 4), 'd');
+	TEST__ASSERT_EQ(str__ncmp("abc", "abc", 3), 0);
+	TEST__ASSERT_EQ(str__ncmp("abc", "abcd", 3), 0);
+	TEST__ASSERT_EQ(str__ncmp("abc", "abb", 3), 1);
+	TEST__ASSERT_EQ(str__ncmp("abb", "abc", 3), -1);
+	TEST__ASSERT_EQ(str__ncmp("abcd", "abc", 4), 'd');
 }
 
 void	test__string__len(void)
@@ -30,10 +30,21 @@ void	test__string__is_equal(void)
 	TEST__ASSERT_EXPR(not str__is_equal("hello world", NULL));
 }
 
+void	test__string__find(void)
+{
+	test__header("str::find");
+	TEST__ASSERT_EQ(str__find("hello world", "hello"), 0);
+	TEST__ASSERT_EQ(str__find("hello world", "world"), 6);
+	TEST__ASSERT_EQ(str__find("hello world", "bye"), ERR);
+	TEST__ASSERT_EQ(str__find("hello world", ""), 0);
+	TEST__ASSERT_EQ(str__find("hello world", NULL), ERR);
+}
+
 int	main(void)
 {
 	test__string__cmp();
 	test__string__len();
 	test__string__is_equal();
+	test__string__find();
 	return (0);
 }

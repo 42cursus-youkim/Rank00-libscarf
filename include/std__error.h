@@ -5,8 +5,9 @@
 
 //@func
 /*
-** < error.c > */
+** < panic.c > */
 
-void	std__panic__syscall(t_string category);
-void	std__panic(t_string what);
+void	std__panic__syscall(t_string_ref category);
+void	std__panic(t_string_ref what);
+void	std__panic__index(t_string what, int index);
 #endif

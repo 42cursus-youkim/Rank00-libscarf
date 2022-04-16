@@ -2,22 +2,31 @@
 #include "std__string.h"
 #include "std__system.h"
 
-//	creates a new string, identical to src to heap and returns it.
-t_string	str__new(const t_string from)
+/**
+ * @brief create a new string from a given string.
+ *
+ * @param from
+ * @return t_string
+ */
+t_string	str__new(t_string_ref from)
 {
 	t_i32		i;
 	t_string	new;
 	const t_i32	len = str__len(from);
 
-	new = std__calloc(sizeof(char), len);
+	new = std__calloc(len, sizeof(char));
 	i = -1;
 	while (++i < len)
 		new[i] = from[i];
 	return (new);
 }
 
-//	deletes a string from the heap.
-void	str__del(t_string this)
+/**
+ * @brief deletes a string and set it to NULL.
+ *
+ * @param this the string to delete.
+ */
+void	str__delete(t_string this)
 {
 	free(this);
 	this = NULL;

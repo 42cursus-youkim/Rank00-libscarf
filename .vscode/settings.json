@@ -21,6 +21,9 @@
     "*.list": "properties",
     "*.sav": "json",
     "*.lalrpop": "rust",
-    "cerrno": "c"
+    "cerrno": "c",
+    "__locale": "c",
+    "locale": "c",
+    "sstream": "c"
   }
 }

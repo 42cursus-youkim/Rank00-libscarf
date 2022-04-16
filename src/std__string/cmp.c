@@ -2,7 +2,7 @@
 
 /** @brief Compare two strings. use str__is_equal() instead.
  *  @return n1 - n2 of first non-matching char || 0 (leached end) */
-int	str__cmp(const t_string s1, const t_string s2, int n)
+int	str__ncmp(t_string_ref s1, t_string_ref s2, int n)
 {
 	int		i;
 	t_u8	n1;
@@ -22,10 +22,10 @@ int	str__cmp(const t_string s1, const t_string s2, int n)
 }
 
 /** @return true if value of s1 and s2 are same. */
-bool	str__is_equal(const t_string s1, const t_string s2)
+bool	str__is_equal(t_string_ref s1, t_string_ref s2)
 {
 	const int	s1_len = str__len(s1);
 	const int	s2_len = str__len(s2);
 
-	return (s1_len == s2_len && str__cmp(s1, s2, s1_len) == 0);
+	return (s1_len == s2_len && str__ncmp(s1, s2, s1_len) == 0);
 }

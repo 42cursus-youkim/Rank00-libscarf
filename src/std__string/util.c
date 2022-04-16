@@ -1,6 +1,12 @@
 #include "std__string.h"
 
-int	str__len(const t_string this)
+/**
+ * @brief length of a string.
+ *
+ * @param this the string to get the length of.
+ * @return ERR (-1) if the string is NULL, the length of the string otherwise.
+ */
+t_non_neg_int_or_err	str__len(t_string_ref this)
 {
 	int	i;
 

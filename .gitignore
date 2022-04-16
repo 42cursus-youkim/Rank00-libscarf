@@ -1,3 +1,7 @@
+# Doxygen result
+html/
+latex/
+
 # Prerequisites
 *.d
 
