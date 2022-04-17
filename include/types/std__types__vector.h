@@ -3,18 +3,20 @@
 
 # include "std__types.h"
 
-typedef struct s_lnode
-{
-	void			*data;
-	struct s_list	*next;
-}	t_lnode;
+typedef void*	t_std__vector_item;
 
-typedef struct s_vector
+typedef enum e_vector__config {
+	VECTOR__INIT_CAPACITY = 16,
+	VECTOR__DEFAULT_GROW_FACTOR = 2,
+	VECTOR__DEBUG = true,
+}	t_vector__config;
+
+typedef struct s_std__vector
 {
-	void			**items;
-	size_t			capacity;
-	size_t			size;
-	t_destructor	destructor;
-}	t_vector;
+	t_destructor		destructor;
+	t_std__vector_item	*items;
+	t_u32				capacity;
+	t_u32				size;
+}	t_std__vector;
 
 #endif

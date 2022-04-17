@@ -30,6 +30,8 @@ t_int_res			str__to_int(t_string_ref str);
 ** < find.c > */
 
 t_int_or_neg_as_err	str__find(t_string_ref this, t_string_ref other);
+t_int_or_neg_as_err	str__find_from(t_string_ref this, t_string_ref other,
+						t_i64 from);
 /*
 ** < find_of.c > */
 
@@ -50,8 +52,8 @@ t_string			str__new_substr(t_string_ref str, t_uint start,
 /*
 ** < split.c > */
 
-t_int_or_neg_as_err	str__count_of(t_string_ref str, t_string_ref delim);
-t_string			*str__split(t_string_ref str, t_string_ref delim);
+t_int_or_neg_as_err	str__count_of(t_string_ref str, t_string_ref other);
+t_string			*str__new_split(t_string_ref str, t_string_ref delim);
 /*
 ** < util.c > */
 

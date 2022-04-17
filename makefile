@@ -63,7 +63,7 @@ docs:
 		done
 
 test_make: docs all
-	@$(CC) $(CFLAGS) $(NAME) $(wildcard test/*.c) -o test/test.out
+	@$(CC) $(CFLAGS) $(wildcard test/*.c) $(NAME) -o test/test.out
 
 test: test_make
 	@./test/test.out

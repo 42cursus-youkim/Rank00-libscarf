@@ -1,6 +1,8 @@
 #ifndef STD__TYPES__DEQUE_H
 # define STD__TYPES__DEQUE_H
 
+# include "std__types.h"
+
 typedef struct s_dnode
 {
 	void			*data;

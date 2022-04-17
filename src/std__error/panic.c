@@ -51,3 +51,9 @@ void	std__panic__null(t_string_ref where)
 	exit(EXIT_FAILURE);
 }
 
+void	std__panic__value(t_string_ref where, t_string_ref what)
+{
+	std__panic_write_internal((t_string_ref[]){
+		where, " value error", what, NULL});
+	exit(EXIT_FAILURE);
+}
