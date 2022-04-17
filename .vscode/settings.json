@@ -29,5 +29,11 @@
     "system_error": "c",
     "ios": "c",
     "chrono": "c"
+  },
+  "[c]": {
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "editor.tabSize": 4
   }
 }
