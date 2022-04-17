@@ -35,17 +35,5 @@
     "editor.formatOnSave": false,
     "editor.formatOnType": false
   },
-  "editor.tabSize": 4,
-  "emeraldwalk.runonsave": {
-    "commands": [
-      {
-        "match": "\\.c$",
-        "cmd": "make -C libscarf docs 1> /dev/null; make -C libscarf 1> /dev/null"
-      },
-      {
-        "match": "\\.h$",
-        "cmd": "make -C libscarf docs 1> /dev/null;"
-      }
-    ]
-  }
+  "editor.tabSize": 4
 }

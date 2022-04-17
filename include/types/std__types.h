@@ -22,4 +22,7 @@ typedef uint64_t	t_u64;
 typedef char*		t_string;
 typedef const char*	t_string_ref;
 
+/** destructor provided to some data types */
+typedef void		(*t_destructor)(void* ptr);
+
 #endif
