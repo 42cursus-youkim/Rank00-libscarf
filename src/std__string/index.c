@@ -9,17 +9,19 @@
 */
 t_u8	str__at(t_string_ref this, const int index)
 {
+	const int	len = str__len(this);
+
 	if (index >= 0)
 	{
-		if (index >= str__len(this))
-			std__panic__index("str__at", this, index);
+		if (index >= len)
+			std__panic__index__string("str__at", this, index, len);
 		return (this[index]);
 	}
 	else
 	{
-		if (-index > str__len(this))
-			std__panic__index("str__at", this, index);
-		return (this[str__len(this) + index]);
+		if (-index > len)
+			std__panic__index__string("str__at", this, index, len);
+		return (this[len + index]);
 	}
 }
 

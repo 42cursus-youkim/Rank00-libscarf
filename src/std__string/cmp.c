@@ -1,6 +1,7 @@
 #include "std__string.h"
 
-/** @brief Compare two strings. use str__is_equal() instead.
+/** @brief Compare two strings.
+ * 		   use str__is_equal() instead for full length comparison.
  *  @return n1 - n2 of first non-matching char || 0 (leached end) */
 int	str__ncmp(t_string_ref s1, t_string_ref s2, int n)
 {

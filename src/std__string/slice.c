@@ -8,7 +8,8 @@ t_string	str__new_substr(
 	const int	str_len = str__len(str);
 
 	if (start >= (t_uint)str_len)
-		std__panic__index("str__new_substr", "start >= str_len", start);
+		std__panic__index__string(
+			"str__new_substr", "start >= str_len", start, str_len);
 	if (len == NEG_AS_FLAG__UNLIMITED)
 		return (str__new(str + start));
 	if (str_len == ERR or not str)

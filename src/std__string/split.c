@@ -3,15 +3,13 @@
 
 t_int_or_neg_as_err	str__count_of(t_string_ref str, t_string_ref delim)
 {
-	t_int_or_neg_as_err	count;
-	t_int_or_neg_as_err	delim_len;
-	t_int_or_neg_as_err	str_len;
-	t_int_or_neg_as_err	i;
+	int			i;
+	int			count;
+	const int	delim_len = str__len(delim);
+	const int	str_len = str__len(str);
 
 	if (str == NULL or delim == NULL)
 		return (ERR);
-	delim_len = str__len(delim);
-	str_len = str__len(str);
 	if (delim_len == ERR or str_len == ERR)
 		return (ERR);
 	count = 0;

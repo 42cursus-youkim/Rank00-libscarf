@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "std__system.h"
 
-/** @brief sets all value of given memory as c. use std__calloc() instead. */
+/** @brief sets all value of given memory as c. use std__allocate() instead. */
 void	*std__memset(void *ptr, char c, int count)
 {
 	int		i;
@@ -14,7 +14,7 @@ void	*std__memset(void *ptr, char c, int count)
 	return (ptr);
 }
 
-/** @brief  sets all value of given memory as 0. use std__calloc() instead. */
+/** @brief  sets all value of given memory as 0. use std__allocate() instead. */
 void	*std__bzero(void *ptr, int count)
 {
 	return (std__memset(ptr, '\0', count));
