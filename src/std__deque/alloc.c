@@ -48,6 +48,6 @@ void	std__deque__delete(t_deque *deque)
 	while (curs)
 	{
 		curs = curs->next;
-
+		
 	}
 }

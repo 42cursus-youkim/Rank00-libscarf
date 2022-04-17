@@ -7,10 +7,13 @@
 /*
 ** < alloc.c > */
 
-void	vector__init(t_std__vector *v);
+void	vector__init(t_std__vector *v, t_destructor destructor);
+void	vector__init_from(t_std__vector *v,
+			t_destructor destructor,t_std__vector_item initializer_list[]);
+void	vector__impl__delete_items(t_destructor destructor,
+			t_std__vector_item *items, t_u32 size);
 void	vector__impl__resize(t_std__vector *v, t_u32 new_capacity);
-void	vector__impl__delete_items(t_std__vector *v);
-void	vector__delete(t_std__vector *v);
+void	vector__deinit(t_std__vector *v);
 /*
 ** < push.c > */
 

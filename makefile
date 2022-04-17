@@ -2,12 +2,9 @@
 NAME     := libft.a
 
 CC       := clang
-CFLAGS   := -Wall -Wextra -Werror -std=c99	\
-						-I include -I include/types			\
-						-g3
+CFLAGS   := -g3 -Wall -Wextra -Werror -std=c99 -I include
 
 AR       := ar -rcs
-HGEN     := hgen
 
 # ===== @Packages =====
 PKGS     := error math string system vector
@@ -59,11 +56,12 @@ re: fclean all
 docs:
 	@set -e;\
 		for p in $(PKGS); do\
-			$(HGEN) -I include/std__$$p.h src/std__$$p 1> /dev/null;\
+			hgen -I include/std__$$p.h src/std__$$p 1> /dev/null;\
 		done
 
 test_make: docs all
-	@$(CC) $(CFLAGS) $(wildcard test/*.c) $(NAME) -o test/test.out
+	@$(CC) $(CFLAGS) -I test/lib/theft/inc -L test/lib/theft/build/ \
+		$(wildcard test/*.c) $(NAME) -ltheft -o test/test.out
 
 test: test_make
 	@./test/test.out
