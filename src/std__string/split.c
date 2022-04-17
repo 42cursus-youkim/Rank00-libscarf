@@ -1,50 +1,78 @@
 #include "std__string.h"
 #include "std__system.h"
 
-t_int_or_neg_as_err	str__count_of(t_string_ref str, t_string_ref delim)
+#include <stdio.h>
+
+/**
+ * @brief count the number of occurences of a sequence in a string.
+ *
+ * "hello world" " " -> 1
+ * "hello world" "l" -> 3
+ * "hello world" "ll" -> 1
+ *
+ * @param str
+ * @param delim
+ * @return t_int_or_neg_as_err
+ */
+t_int_or_neg_as_err	str__count_of(t_string_ref str, t_string_ref other)
 {
-	int			i;
-	int			count;
-	const int	delim_len = str__len(delim);
-	const int	str_len = str__len(str);
+	int					i;
+	int					find_result;
+	const int			str_len = str__len(str);
+	const int			other_len = str__len(other);
+	t_int_or_neg_as_err	count;
 
-	if (str == NULL or delim == NULL)
+	if (other_len == ERR or str_len == ERR)
 		return (ERR);
-	if (delim_len == ERR or str_len == ERR)
-		return (ERR);
-	count = 0;
-	i = -1;
-	while (++i < str_len)
-	{
-		if (str__find(str + i, delim) == i)
-			count++;
-	}
-	return (count);
-}
-
-t_string	*str__split(t_string_ref str, t_string_ref delim)
-{
-	t_string	*arr;
-	t_uint		i;
-	t_uint		j;
-	t_uint		k;
-
-	if (not str or not delim)
-		return (NULL);
+	if (other_len == 0)
+		std__panic__value("str__count_of", "string to match is zero witdh");
 	i = 0;
-	j = 0;
-	k = 0;
-	arr = std__allocate(str__count_of(str, delim) + 2, sizeof(t_string));
-	while (str[i])
+	count = 0;
+	while (true)
 	{
-		if (str__is_in(delim, str[i]))
+		find_result = str__find_from(str, other, i);
+		if (find_result == ERR)
+			return (count);
+		else
 		{
-			arr[k++] = str__new_substr(str, j, i - j);
-			j = i + 1;
+			count++;
+			i += find_result + other_len;
 		}
-		i++;
 	}
-	arr[k++] = str__new_substr(str, j, i - j);
-	arr[k] = NULL;
+}
+/**
+ * @brief split string by deliminating string.
+ *
+ * "hello world" " " -> ["hello", "world"]
+ * "hello world" "l" -> ["he", "o wor", "d"]
+ * "hello world" "ell" -> ["h", "o world"]
+ *
+ * @param str
+ * @param delim
+ * @return array of t_string, NULL terminated. copy of itself if no match.
+ * TODO: maybe struct?
+ */
+t_string	*str__new_split(t_string_ref str, t_string_ref delim)
+{
+	int			start;
+	int			end;
+	t_string	*arr;
+	int			arr_i;
+
+	if (not delim)
+		std__panic__null("str__split");
+	if (str__len(delim) == 0)
+		std__panic__value("str__split", "empty separator");
+	//TODO: use std__vector
+	arr_i = -1;
+	arr = std__allocate(str__count_of(str, delim) + 1, sizeof(t_string));
+	end = str__find(str, delim);
+	while (end != ERR)
+	{
+		arr[++arr_i] = str__new_substr(str, start, end - start);
+		start = end + str__len(delim);
+		end = str__find_from(str, delim, start);
+	}
+	arr[++arr_i] = str__new_substr(str, start, str__len(str));
 	return (arr);
 }

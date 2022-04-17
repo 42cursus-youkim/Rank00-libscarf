@@ -90,12 +90,47 @@ void test__string__conversion(void) {
 
 void test__string__substr(void) {
   test__header("str::substr");
-  TEST__ASSERT_EXPR(
-      str__is_equal(str__new_substr("hello world", 0, 5), "hello"));
-  TEST__ASSERT_EXPR(
-      str__is_equal(str__new_substr("hello world", 6, 5), "world"));
-  TEST__ASSERT_EXPR(
-      str__is_equal(str__new_substr("hello world", 0, -1), "hello world"));
+  TEST__ASSERT_EQ_STR_FREE(
+      str__new_substr("hello world", 0, 5), "hello");
+  TEST__ASSERT_EQ_STR_FREE(
+      str__new_substr("hello world", 6, 5), "world");
+  TEST__ASSERT_EQ_STR_FREE(
+      str__new_substr("hello world", 0, -1), "hello world");
+}
+
+void test__string__split(void) {
+	test__header("str::count_of");
+	TEST__ASSERT_EQ(str__count_of("hello world", " "), 1);
+	TEST__ASSERT_EQ(str__count_of("hello world", "l"), 3);
+	TEST__ASSERT_EQ(str__count_of("hello world", "ll"), 1);
+	TEST__ASSERT_EQ(str__count_of("hello world", "lll"), 0);
+
+	test__header("str::split");
+	test__subject("by \" \"");
+	t_string s = str__new("hello world");
+	t_string* split1 = str__new_split(s, " ");
+	for (int i = 0; split1[i]; i++) {
+		printf("%s\n", split1[i]);
+	}
+	TEST__ASSERT_EXPR(str__is_equal(split1[0], "hello"));
+	TEST__ASSERT_EXPR(str__is_equal(split1[1], "world"));
+	TEST__ASSERT_EXPR(split1[2] == NULL);
+	test__subject("by l");
+	t_string* split2 = str__new_split(s, "l");
+	TEST__ASSERT_EXPR(str__is_equal(split2[0], "he"));
+	TEST__ASSERT_EXPR(str__is_equal(split2[1], ""));
+	TEST__ASSERT_EXPR(str__is_equal(split2[2], "o wor"));
+	TEST__ASSERT_EXPR(str__is_equal(split2[3], "d"));
+	TEST__ASSERT_EXPR(split2[4] == NULL);
+	test__subject("by ll");
+	t_string* split3 = str__new_split(s, "ell");
+	TEST__ASSERT_EXPR(str__is_equal(split3[0], "h"));
+	TEST__ASSERT_EXPR(str__is_equal(split3[1], "o world"));
+	TEST__ASSERT_EXPR(split3[2] == NULL);
+	test__subject("by non-existing");
+	t_string* split4 = str__new_split(s, "z");
+	TEST__ASSERT_EXPR(str__is_equal(split4[0], "hello world"));
+	TEST__ASSERT_EXPR(split4[1] == NULL);
 }
 
 int main(void) {
@@ -105,6 +140,7 @@ int main(void) {
   test__string__find();
   test__string__conversion();
   test__string__substr();
+  test__string__split();
   test__malloc();
 
   // t_string str = str__new("hello world");

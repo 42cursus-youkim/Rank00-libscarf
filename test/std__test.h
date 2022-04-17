@@ -2,6 +2,7 @@
 #define STD__TEST_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "std__color.h"
 #include "std__types.h"
 #include "std__types__error.h"
@@ -28,6 +29,14 @@ void test__subject(t_string_ref text)
     assert(left == right);                                                     \
     printf(HWHT "{ " BBLU #left " == " #right HWHT " } " BGRN " OK!" END "\n");\
 	free(left);                                                                \
+  } while (0);
+
+#define TEST__ASSERT_EQ_STR_FREE(left, right)                                  \
+  do {                                                                         \
+	char *str = left;                                                          \
+    assert(str__is_equal(str, right));                                         \
+    printf(HWHT "{ " BBLU #left " == " #right HWHT " } " BGRN " OK!" END "\n");\
+	free(str);                                                                 \
   } while (0);
 
 #define TEST__ASSERT_EXPR(expr)                                \

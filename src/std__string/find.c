@@ -9,13 +9,19 @@
  */
 t_int_or_neg_as_err	str__find(t_string_ref this, t_string_ref other)
 {
+	return (str__find_from(this, other, 0));
+}
+
+t_int_or_neg_as_err str__find_from(
+	t_string_ref this, t_string_ref other, t_i64 from)
+{
 	t_i64		i;
 	const int	this_len = str__len(this);
 	const int	other_len = str__len(other);
 
 	if (other_len == ERR or other_len == 0)
 		return (other_len);
-	i = -1;
+	i = from - 1;
 	while (++i <= this_len - other_len)
 		if (str__ncmp(this + i, other, other_len) == 0)
 			return (i);
