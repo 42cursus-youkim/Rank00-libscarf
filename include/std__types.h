@@ -25,4 +25,5 @@ typedef const char	*t_const_string;
 /** destructor provided to some data types */
 typedef void		(*t_destructor)(void *ptr);
 
+typedef int			t_fd;
 #endif

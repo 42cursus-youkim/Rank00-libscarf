@@ -15,7 +15,7 @@ void				str__delete(t_string *this_ptr);
 /*
 ** < append.c > */
 
-void				str__append(t_string *this_ptr, t_const_string src);
+int					str__append(t_string *this_ptr, t_const_string src);
 /*
 ** < cmp.c > */
 
@@ -59,4 +59,6 @@ t_string			*str__new_split(t_const_string str, t_const_string delim);
 
 t_int_or_neg_as_err	str__len(t_const_string this);
 bool				str__is_empty(t_const_string this);
+void				str__replace(t_string *this, t_string other);
+void				str__merge(t_string *this, t_string *other);
 #endif

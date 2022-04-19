@@ -17,8 +17,8 @@ void	std__panic__index__string(t_const_string where,
 	index_str = str__new_from_int(index);
 	size_str = str__new_from_int(size);
 	std__panic_write_internal((t_const_string[]){
-		where, "while indexing", what, MAG "index out of range" BHYEL,
-		"while available size is", index_str, NULL});
+		where, "while indexing", what, MAG "index out of range" BRED,
+		index_str, RED "while available size is" BHYEL, size_str, NULL});
 	str__delete(&index_str);
 	str__delete(&size_str);
 	exit(EXIT_FAILURE);
