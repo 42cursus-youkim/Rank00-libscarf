@@ -1,6 +1,5 @@
 #include "std__string.h"
 #include "std__system.h"
-
 #include <stdio.h>
 
 /**
@@ -14,28 +13,31 @@
  * @param delim
  * @return t_int_or_neg_as_err
  */
-t_int_or_neg_as_err str__count_of(t_const_string str, t_const_string other) {
-  int i;
-  int find_result;
-  const int str_len = str__len(str);
-  const int other_len = str__len(other);
-  t_int_or_neg_as_err count;
+t_int_or_neg_as_err	str__count_of(t_const_string str, t_const_string other)
+{
+	int					i;
+	int					find_result;
+	const int			str_len = str__len(str);
+	const int			other_len = str__len(other);
+	t_int_or_neg_as_err	count;
 
-  if (other_len == ERR or str_len == ERR)
-    return (ERR);
-  if (other_len == 0)
-    std__panic__value("str__count_of", "string to match is zero witdh");
-  i = 0;
-  count = 0;
-  while (true) {
-    find_result = str__find_from(str, other, i);
-    if (find_result == ERR)
-      return (count);
-    else {
-      count++;
-      i += find_result + other_len;
-    }
-  }
+	if (other_len == ERR or str_len == ERR)
+		return (ERR);
+	if (other_len == 0)
+		std__panic__value("str__count_of", "string to match is zero witdh");
+	i = 0;
+	count = 0;
+	while (true)
+	{
+		find_result = str__find_from(str, other, i);
+		if (find_result == ERR)
+			return (count);
+		else
+		{
+			count++;
+			i += find_result + other_len;
+		}
+	}
 }
 /**
  * @brief split string by deliminating string.
@@ -49,25 +51,27 @@ t_int_or_neg_as_err str__count_of(t_const_string str, t_const_string other) {
  * @return array of t_string, NULL terminated. copy of itself if no match.
  * TODO: maybe struct?
  */
-t_string* str__new_split(t_const_string str, t_const_string delim) {
-  int start;
-  int end;
-  t_string* arr;
-  int arr_i;
+t_string	*str__new_split(t_const_string str, t_const_string delim)
+{
+	int			start;
+	int			end;
+	t_string	*arr;
+	int			arr_i;
 
-  if (not delim)
-    std__panic__null("str__split");
-  if (str__len(delim) == 0)
-    std__panic__value("str__split", "empty separator");
-  // TODO: use std__vector
-  arr_i = -1;
-  arr = std__allocate(str__count_of(str, delim) + 1, sizeof(t_string));
-  end = str__find(str, delim);
-  while (end != ERR) {
-    arr[++arr_i] = str__new_substr(str, start, end - start);
-    start = end + str__len(delim);
-    end = str__find_from(str, delim, start);
-  }
-  arr[++arr_i] = str__new_substr(str, start, str__len(str));
-  return (arr);
+	if (not delim)
+		std__panic__null("str__split");
+	if (str__len(delim) == 0)
+		std__panic__value("str__split", "empty separator");
+	// TODO: use std__vector
+	arr_i = -1;
+	arr = std__allocate(str__count_of(str, delim) + 1, sizeof(t_string));
+	end = str__find(str, delim);
+	while (end != ERR)
+	{
+		arr[++arr_i] = str__new_substr(str, start, end - start);
+		start = end + str__len(delim);
+		end = str__find_from(str, delim, start);
+	}
+	arr[++arr_i] = str__new_substr(str, start, str__len(str));
+	return (arr);
 }

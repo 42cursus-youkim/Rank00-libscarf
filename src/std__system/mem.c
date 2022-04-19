@@ -1,5 +1,5 @@
-#include <stdlib.h>
 #include "std__system.h"
+#include <stdlib.h>
 
 /** @brief sets all value of given memory as c. use std__allocate() instead. */
 void	*std__memset(void *ptr, char c, int count)

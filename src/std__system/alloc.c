@@ -1,6 +1,6 @@
-#include <stdlib.h>
-#include "std__system.h"
 #include "std__error.h"
+#include "std__system.h"
+#include <stdlib.h>
 
 /**
  * @brief allocate memory with all data set to 0. always succeeds (or panic).

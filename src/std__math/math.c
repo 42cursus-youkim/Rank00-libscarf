@@ -1,6 +1,6 @@
-#include <stddef.h>
-#include <math.h>
 #include "std__math.h"
+#include <math.h>
+#include <stddef.h>
 
 int	math__max(int a, int b)
 {
@@ -31,9 +31,9 @@ int	math__digit_len(int num)
 
 int	math__normalize(int num, t_irange range, t_irange map_range)
 {
-	int		result;
-	int		map_len;
-	int		num_len;
+	int	result;
+	int	map_len;
+	int	num_len;
 
 	result = 0;
 	map_len = math__max(range.end - range.start, 1);
