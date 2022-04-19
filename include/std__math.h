@@ -33,5 +33,5 @@ t_vec	vec__add(t_vec *v1, t_vec *v2);
 void	vec__add_assign(t_vec *v1, t_vec *v2);
 t_vec	vec__rotate(t_vec *vec, double angle);
 void	vec__rotate_assign(t_vec *vec, double angle);
-bool	vec__ivec_eq(t_ivec *v1, t_ivec *v2);
+bool	ivec__is_equal(t_ivec *v1, t_ivec *v2);
 #endif

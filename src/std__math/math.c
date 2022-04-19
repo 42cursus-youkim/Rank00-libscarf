@@ -34,15 +34,10 @@ int	math__digit_len(int num)
 	return (result);
 }
 
-int	math__normalize(int num, t_irange range, t_irange map_range)
+int	math__normalize(int num, t_irange from, t_irange to)
 {
-	int	result;
-	int	map_len;
-	int	num_len;
+	const int	map_len = math__max(from.end - from.start, 1);
+	const int	num_len = math__max(to.end - to.start, 1);
 
-	result = 0;
-	map_len = math__max(range.end - range.start, 1);
-	num_len = math__max(map_range.end - map_range.start, 1);
-	result = (num - range.start) * num_len / map_len;
-	return (result);
+	return ((num - from.start) * num_len / map_len);
 }

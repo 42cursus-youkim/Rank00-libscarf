@@ -3,8 +3,6 @@
 #include "std__system.h"
 #include <limits.h>
 
-#define INT_MIN_ABS 2147483648
-
 t_string	str__new_from_int(int num)
 {
 	t_string	str;

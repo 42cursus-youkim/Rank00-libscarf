@@ -1,7 +1,9 @@
 #ifndef STD__TYPES__MATH_H
-#define STD__TYPES__MATH_H
+# define STD__TYPES__MATH_H
 
-#include "std__types.h"
+# include "std__types.h"
+
+# define INT_MIN_ABS 2147483648
 
 typedef struct s_vec {
   double x;

@@ -32,7 +32,7 @@ void	vec__rotate_assign(t_vec *vec, double angle)
 	vec->y = y;
 }
 
-bool	vec__ivec_eq(t_ivec *v1, t_ivec *v2)
+bool	ivec__is_equal(t_ivec *v1, t_ivec *v2)
 {
 	return (v1->x == v2->x && v1->y == v2->y);
 }
