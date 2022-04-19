@@ -8,17 +8,16 @@
  * @param from
  * @return t_string
  */
-t_string	str__new(t_string_ref from)
-{
-	t_i32		i;
-	t_string	new;
-	const t_i32	len = str__len(from);
+t_string str__new(t_const_string from) {
+  t_i32 i;
+  t_string new;
+  const t_i32 len = str__len(from);
 
-	new = str__new_size(len);
-	i = -1;
-	while (++i < len)
-		new[i] = from[i];
-	return (new);
+  new = str__new_size(len);
+  i = -1;
+  while (++i < len)
+    new[i] = from[i];
+  return (new);
 }
 
 /**
@@ -27,12 +26,11 @@ t_string	str__new(t_string_ref from)
  * @param size
  * @return t_string
  */
-t_string	str__new_size(t_uint size)
-{
-	t_string	new;
+t_string str__new_size(t_uint size) {
+  t_string new;
 
-	new = std__allocate(size, sizeof(char));
-	return (new);
+  new = std__allocate(size, sizeof(char));
+  return (new);
 }
 
 /**
@@ -40,7 +38,6 @@ t_string	str__new_size(t_uint size)
  *
  * @param this the string to delete.
  */
-void	str__delete(t_string *this_ptr)
-{
-	std__dealloc((void **)this_ptr);
+void str__delete(t_string* this_ptr) {
+  std__dealloc((void**)this_ptr);
 }

@@ -9,18 +9,17 @@
  * then the string will be searched for any of first occurance of a, b, c, d.
  * @return index of string if found, ERR (-1) if not found
  */
-t_int_or_neg_as_err	str__find_first_of(
-		t_string_ref this, t_string_ref charset)
-{
-	t_uint	i;
+t_int_or_neg_as_err str__find_first_of(t_const_string this,
+                                       t_const_string charset) {
+  t_uint i;
 
-	if (not charset)
-		return (ERR);
-	i = -1;
-	while (this[++i])
-		if (str__is_in(charset, this[i]))
-			return (i);
-	return (ERR);
+  if (not charset)
+    return (ERR);
+  i = -1;
+  while (this[++i])
+    if (str__is_in(charset, this[i]))
+      return (i);
+  return (ERR);
 }
 
 /**
@@ -31,16 +30,15 @@ t_int_or_neg_as_err	str__find_first_of(
  * @param charset
  * @return index of string if found, ERR (-1) if not found
  */
-t_int_or_neg_as_err	str__find_first_not_of(
-		t_string_ref this, t_string_ref charset)
-{
-	t_uint	i;
+t_int_or_neg_as_err str__find_first_not_of(t_const_string this,
+                                           t_const_string charset) {
+  t_uint i;
 
-	if (not charset)
-		return (ERR);
-	i = -1;
-	while (this[++i])
-		if (not str__is_in(charset, this[i]))
-			return (i);
-	return (ERR);
+  if (not charset)
+    return (ERR);
+  i = -1;
+  while (this[++i])
+    if (not str__is_in(charset, this[i]))
+      return (i);
+  return (ERR);
 }
