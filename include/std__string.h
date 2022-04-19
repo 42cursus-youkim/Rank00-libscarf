@@ -1,9 +1,9 @@
 #ifndef STD__STRING_H
-#define STD__STRING_H
+# define STD__STRING_H
 
-#include "std__error.h"
-#include "std__types.h"
-#include "std__types__error.h"
+# include "std__error.h"
+# include "std__types.h"
+# include "std__types__error.h"
 
 //@func
 /*

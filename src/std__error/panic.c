@@ -11,12 +11,12 @@ void	std__panic_write_internal(t_const_string arr[])
 	int	i;
 
 	if (arr)
-		std__writes(STDERR_FILENO, (t_const_string[]){BHRED "panic " BMAG "@",
-				arr[0], HRED, NULL});
+		std__writes(STDERR_FILENO, (t_const_string[]){
+			BHRED "panic " BMAG "@", arr[0], HRED, NULL});
 	else
 	{
-		std__write(STDERR_FILENO,
-				BHRED "panic " BMAG "@std__panic_write_internal : arr is NULL\n" END);
+		std__write(STDERR_FILENO, BHRED "panic " BMAG
+			"@std__panic_write_internal : arr is NULL\n" END);
 		exit(EXIT_FAILURE);
 	}
 	i = 0;

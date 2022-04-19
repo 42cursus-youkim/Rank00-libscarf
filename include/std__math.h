@@ -1,8 +1,8 @@
 #ifndef STD__MATH_H
-#define STD__MATH_H
+# define STD__MATH_H
 
-#include <stdbool.h>
-#include "std__types__math.h"
+# include "std__types__math.h"
+# include <stdbool.h>
 
 //@func
 /*
@@ -25,7 +25,7 @@ int		math__max(int a, int b);
 int		math__min(int a, int b);
 int		math__clamp(int n, t_irange range);
 int		math__digit_len(int num);
-int		math__normalize(int num, t_irange range, t_irange map_range);
+int		math__normalize(int num, t_irange from, t_irange to);
 /*
 ** < vector.c > */
 

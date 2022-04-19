@@ -1,7 +1,7 @@
 #ifndef STD__ERROR_H
-#define STD__ERROR_H
+# define STD__ERROR_H
 
-#include "std__types.h"
+# include "std__types.h"
 
 //@func
 /*

@@ -7,7 +7,7 @@ CFLAGS   := -g3 -Wall -Wextra -Werror -std=c99 -I include
 AR       := ar -rcs
 
 # ===== @Packages =====
-PKGS     := error math string system vector
+PKGS     := error math string system
 
 #FIXME: specify packages
 stringV  := alloc util
@@ -56,7 +56,7 @@ re: fclean all
 docs:
 	@set -e;\
 		for p in $(PKGS); do\
-			hgen -I include/std__$$p.h src/std__$$p 1> /dev/null;\
+			hgen -I include/std__$$p.h src/std__$$p;\
 		done
 
 test_make: docs all

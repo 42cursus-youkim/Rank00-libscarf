@@ -9,17 +9,17 @@ typedef enum e_res
 	OK,
 	ERR = -1,
 	UNSET = -2,
-}	t_res;
+}			t_res;
 
 typedef struct s_int_res
 {
 	t_res	err;
 	int		num;
-}	t_int_res;
+}			t_int_res;
 
 typedef enum e_neg_as_flag
 {
 	NEG_AS_FLAG__UNLIMITED = -1,
-}	t_neg_as_flag;
+}			t_neg_as_flag;
 
 #endif

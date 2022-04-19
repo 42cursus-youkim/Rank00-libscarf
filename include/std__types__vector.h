@@ -3,13 +3,14 @@
 
 # include "std__types.h"
 
-typedef void*	t_std__vector_item;
+typedef void			*t_std__vector_item;
 
-typedef enum e_vector__config {
+typedef enum e_vector__config
+{
 	VECTOR__INIT_CAPACITY = 16,
 	VECTOR__DEFAULT_GROW_FACTOR = 2,
 	VECTOR__DEBUG = true,
-}	t_vector__config;
+}						t_vector__config;
 
 typedef struct s_std__vector
 {
@@ -17,6 +18,6 @@ typedef struct s_std__vector
 	t_std__vector_item	*items;
 	t_u32				capacity;
 	t_u32				size;
-}	t_std__vector;
+}						t_std__vector;
 
 #endif

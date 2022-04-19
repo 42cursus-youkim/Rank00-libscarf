@@ -1,7 +1,7 @@
 #ifndef STD__SYSTEM_H
-#define STD__SYSTEM_H
+# define STD__SYSTEM_H
 
-#include "std__types.h"
+# include "std__types.h"
 
 //@func
 /*
