@@ -16,6 +16,11 @@ int	math__min(int a, int b)
 	return (b);
 }
 
+int	math__clamp(int n, t_irange range)
+{
+	return (math__min(math__max(n, range.start), range.end));
+}
+
 int	math__digit_len(int num)
 {
 	int	result;

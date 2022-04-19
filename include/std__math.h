@@ -23,6 +23,7 @@ bool	is_overflow(int num, int sign);
 
 int		math__max(int a, int b);
 int		math__min(int a, int b);
+int		math__clamp(int n, t_irange range);
 int		math__digit_len(int num);
 int		math__normalize(int num, t_irange range, t_irange map_range);
 /*
