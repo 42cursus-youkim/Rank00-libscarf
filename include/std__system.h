@@ -28,6 +28,7 @@ void		*std__memcpy(void *dst, const void *src, size_t count);
 
 int			std__read(t_fd fd, char *buffer, t_uint size);
 bool		read__is_eof(int len);
+t_fd		std__open(t_const_string path, int flags);
 /*
 ** < read__file.c > */
 
