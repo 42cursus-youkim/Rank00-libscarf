@@ -1,4 +1,5 @@
 #include "std__string.h"
+#include <stdlib.h>
 
 /**
  * @brief length of a string.
@@ -21,4 +22,16 @@ t_int_or_neg_as_err	str__len(t_const_string this)
 bool	str__is_empty(t_const_string this)
 {
 	return (str__len(this) == 0);
+}
+
+void	str__replace(t_string *this, t_string other)
+{
+	free(*this);
+	*this = other;
+}
+
+void	str__merge(t_string *this, t_string *other)
+{
+	str__append(this, *other);
+	str__delete(other);
 }

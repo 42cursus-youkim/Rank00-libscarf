@@ -15,7 +15,8 @@ void				str__delete(t_string *this_ptr);
 /*
 ** < append.c > */
 
-int					str__append(t_string *this_ptr, t_const_string src);
+int					str__copy(t_string this, t_const_string src, int size);
+int					str__append(t_string *this, t_const_string src);
 /*
 ** < cmp.c > */
 
@@ -47,7 +48,7 @@ bool				str__is_in(t_const_string this, char c);
 /*
 ** < slice.c > */
 
-t_string			str__new_substr(t_const_string str, t_uint start,
+t_string			str__new_substr(t_const_string this, t_uint start,
 						t_int_or_neg_as_flag len);
 /*
 ** < split.c > */

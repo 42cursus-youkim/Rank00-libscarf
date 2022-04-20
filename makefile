@@ -3,6 +3,7 @@ NAME     := libft.a
 
 CC       := clang
 CFLAGS   := -g3 -Wall -Wextra -Werror -std=c99 -I include
+#-DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address"
 
 AR       := ar -rcs
 
@@ -60,9 +61,8 @@ docs:
 		done
 
 test_make: docs all
-	@$(CC) $(CFLAGS) -I test/lib/theft/inc -L test/lib/theft/build/ \
-		$(wildcard test/*.c) $(NAME) -ltheft -o test/test.out
-
+	@$(CC) $(CFLAGS) $(wildcard test/*.c) $(NAME)  -o test/test.out
+#-I test/lib/theft/inc -L test/lib/theft/build/ -ltheft
 test: test_make
 	@./test/test.out
 

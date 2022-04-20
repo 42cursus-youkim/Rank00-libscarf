@@ -1,23 +1,20 @@
 #include "std__string.h"
+#include <stdio.h>
+#include <stdlib.h>
 
-t_string	str__new_substr(t_const_string str,
+t_string	str__new_substr(t_const_string this,
 							t_uint start,
 							t_int_or_neg_as_flag len)
 {
-	int			i;
 	t_string	new;
-	const int	str_len = str__len(str);
+	const int	str_len = str__len(this);
 
+	if (len == NEG_AS_FLAG__UNLIMITED)
+		return (str__new(this + start));
 	if (start >= (t_uint)str_len)
 		std__panic__index__string("str__new_substr", "start >= str_len",
 			start, str_len);
-	if (len == NEG_AS_FLAG__UNLIMITED)
-		return (str__new(str + start));
-	if (str_len == ERR or not str)
-		std__panic__null("str__new_substr");
 	new = str__new_size(len);
-	i = -1;
-	while (++i < len)
-		new[i] = str[start + i];
+	str__copy(new, this + start, len);
 	return (new);
 }
