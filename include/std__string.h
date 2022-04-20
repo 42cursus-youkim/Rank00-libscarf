@@ -47,6 +47,11 @@ t_int_or_neg_as_err	str__find_first_not_of(t_const_string this,
 t_u8				str__at(t_const_string this, const int index);
 bool				str__is_in(t_const_string this, char c);
 /*
+** < len.c > */
+
+t_int_or_neg_as_err	str__len(t_const_string this);
+t_int_or_neg_as_err	str__len__arr(t_string arr[]);
+/*
 ** < slice.c > */
 
 t_string			str__new_substr(t_const_string this, t_uint start,
@@ -59,7 +64,6 @@ t_string			*str__new_split(t_const_string str, t_const_string delim);
 /*
 ** < util.c > */
 
-t_int_or_neg_as_err	str__len(t_const_string this);
 bool				str__is_empty(t_const_string this);
 void				str__replace(t_string *this, t_string other);
 void				str__move(t_string *this, t_string *other);
