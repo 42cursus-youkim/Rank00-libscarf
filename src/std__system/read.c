@@ -18,80 +18,65 @@ int	std__read(t_fd fd, char *buffer, t_uint size)
 {
 	int	len;
 
-	// std__bzero(buffer, size + 1);
 	len = read(fd, buffer, size);
 	if (len > 0)
 		buffer[len] = '\0';
 	return (len);
 }
 
-int	where_newline(char *backup)
+static int	str__append_from_read(t_string *this, t_fd fd)
 {
-	int i;
+	int		len;
+	char	buffer[BUFFER_SIZE + 1];
 
-	i = -1;
-	while (backup[++i])
-		if (backup[i] == '\n')
-			return (i);
-	return (-1);
+	len = std__read(fd, buffer, BUFFER_SIZE);
+	if (len == ERR)
+		std__panic__syscall("read");
+	else if (len > 0)
+		str__append(this, buffer);
+	return (len);
 }
 
-int	pop_line(char **backup, char **line, int cut_where)
+bool	read__is_eof(int len)
 {
-	char	*temp;
-
-	(*backup)[cut_where] = '\0';
-	*line = ft_strdup(*backup);
-	if (!ft_strlen(*backup + cut_where + 1))
-	{
-		free(*backup);
-		*backup = 0;
-	}
-	else
-	{
-		temp = ft_strdup(*backup + cut_where + 1);
-		free(*backup);
-		*backup = temp;
-	}
-	return (1);
+	return (len == 0);
 }
 
-char	*result(char **backup, char **line)
+char	*std__new_readfile__line(int fd)
 {
-	int	cut_where;
+	int				at;
+	int				len;
+	t_string		line;
+	t_string		tmp;
+	static t_string	storage = NULL;
+	static bool		done = false;
 
-	if (*backup && (cut_where = where_newline(*backup)) >= 0)
-		return (pop_line(backup, line, cut_where));
-	else if (*backup)
-	{
-		*line = *backup;
-		*backup = 0;
-	}
-	else
-		*line = ft_strdup("");
-	return (0);
-}
-
-int	get_next_line(int fd, char **line)
-{
-	int			len;
-	int			cut_where;
-	char		buffer[BUFFER_SIZE + 1];
-	static char	*backup[OPEN_MAX];
-
-	if ((fd < 0 || OPEN_MAX <= fd) || (line == 0) || (BUFFER_SIZE <= 0))
-		return (-1);
+	if (done)
+		return (NULL);
+	if (not storage)
+		storage = str__new_size(0);
 	while (true)
 	{
-		len = read(fd, buffer, BUFFER_SIZE);
-		if (len <= 0)
-			break ;
-		str__append(&backup[fd], buffer);
-		cut_where = where_newline(backup[fd]);
-		if (cut_where >= 0)
-			return (pop_line(&backup[fd], line, cut_where));
+		at = str__find(storage, "\n");
+		if (at == ERR)
+		{
+			len = str__append_from_read(&storage, fd);
+			if (len == ERR)
+				std__panic__syscall("read");
+			else if (read__is_eof(len))
+			{
+				if (storage)
+					str__delete(&storage);
+				done = true;
+				return (NULL);
+			}
+		}
+		else
+		{
+			line = str__new_substr(storage, 0, at + 1);
+			tmp = str__new_substr(storage, at + 1, -1);
+			str__replace(&storage, tmp);
+			return (line);
+		}
 	}
-	if (len < 0)
-		return (-1);
-	return (result(&backup[fd], line));
 }

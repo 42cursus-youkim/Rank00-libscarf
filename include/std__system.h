@@ -3,7 +3,9 @@
 
 # include "std__types.h"
 
-# define BUFFER_SIZE 128
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 255
+# endif
 # ifndef OPEN_MAX
 #  define OPEN_MAX 4
 # endif
@@ -25,8 +27,7 @@ void	*std__memcpy(void *dst, const void *src, size_t count);
 ** < read.c > */
 
 int		std__read(t_fd fd, char *buffer, t_uint size);
-int		str__append_from_read(t_string *this, t_fd fd);
-bool	is_eof(int len);
+bool	read__is_eof(int len);
 char	*std__new_readfile__line(int fd);
 /*
 ** < write.c > */

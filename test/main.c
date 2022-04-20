@@ -11,11 +11,14 @@
 // #include "theft.h"
 
 int main() {
-	// t_string a = str__new_size(0);
-	// str__append(&a, str);
-	// printf("%s / %s \n", str, a);
-	// assert(str__is_equal(str__new_substr("hello", 0, str__len("hello")), "hello"));
-	t_fd fd = open("test/main.c", O_RDONLY);
+	// t_string str = str__new("abcde");
+	// t_string a = str__new_substr(str, 0, 3);
+	// t_string b = str__new_substr(str, 3, -1);
+	// printf("a: %s\n", a);
+	// assert(str__is_equal(a, "abc"));
+	// assert(str__is_equal(b, "de"));
+	t_fd fd = open("test.txt", O_RDONLY);
+	// t_fd fd = open("test/gnlTester/files/41_no_nl", O_RDONLY);
 	printf("fd: %d\n", fd);
 	t_string str;
 	while ((str = std__new_readfile__line(fd))) {
