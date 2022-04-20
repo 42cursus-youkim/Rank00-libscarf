@@ -71,7 +71,6 @@ t_string			*str__new_split(t_const_string str, t_const_string delim);
 void				str__lstrip(t_string *this, t_const_string charset);
 void				str__rstrip(t_string *this, t_const_string charset);
 void				str__strip(t_string *this, t_const_string charset);
-void				str__strip__spaces(t_string *this);
 /*
 ** < util.c > */
 
