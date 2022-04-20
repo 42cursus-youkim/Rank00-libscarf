@@ -67,7 +67,6 @@ t_int_or_neg_as_err	str__find_last_of(t_const_string this,
 	return (ERR);
 }
 
-
 /**
  * @brief find the last occurence of any chars not in a character set.
  * c implementation of string::find_first_not_of in c++.
