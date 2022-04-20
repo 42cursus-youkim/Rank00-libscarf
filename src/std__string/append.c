@@ -19,7 +19,6 @@ int	str__copy(t_string this, t_const_string src, int size)
 	return (src_len);
 }
 
-
 /**
  * @brief append a string to another.
  *
@@ -38,6 +37,6 @@ int	str__append(t_string *this, t_const_string src)
 		return (ERR);
 	str__copy(new, *this, org_len);
 	str__copy(new + org_len, src, src_len);
-	str__replace(this, new);
+	str__move(this, &new);
 	return (new_len);
 }

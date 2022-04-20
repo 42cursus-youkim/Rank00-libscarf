@@ -31,7 +31,22 @@ t_string	str__new_size(t_uint size)
 {
 	t_string	new;
 
-	new = std__allocate(size, sizeof(char));
+	new = std__calloc(size, sizeof(char));
+	return (new);
+}
+
+/**
+ * @brief create a new string by moving other. other is freed.
+ *
+ * @param this
+ * @param other
+ */
+t_string	str__new_move(t_string *other)
+{
+	t_string	new;
+
+	new = str__new(*other);
+	str__delete(other);
 	return (new);
 }
 

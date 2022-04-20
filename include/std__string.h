@@ -11,6 +11,7 @@
 
 t_string			str__new(t_const_string from);
 t_string			str__new_size(t_uint size);
+t_string			str__new_move(t_string *other);
 void				str__delete(t_string *this_ptr);
 /*
 ** < append.c > */
@@ -61,5 +62,6 @@ t_string			*str__new_split(t_const_string str, t_const_string delim);
 t_int_or_neg_as_err	str__len(t_const_string this);
 bool				str__is_empty(t_const_string this);
 void				str__replace(t_string *this, t_string other);
+void				str__move(t_string *this, t_string *other);
 void				str__merge(t_string *this, t_string *other);
 #endif
