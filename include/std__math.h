@@ -18,6 +18,7 @@ bool	is_whitespace(char c);
 
 bool	is_digit(char c);
 bool	is_overflow(int num, int sign);
+bool	math__in_range(int num, t_irange range);
 /*
 ** < math.c > */
 
