@@ -10,7 +10,8 @@ bool	str__is_empty(t_const_string this)
 }
 
 /**
- * @brief free this and replace with address of other. for temporary objects.
+ * @brief free this and replace with address of other.
+ *        used to swap 'this' with temporary objects.
  *
  * @param other address to replace.
  */

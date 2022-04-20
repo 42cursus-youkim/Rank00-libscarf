@@ -41,6 +41,10 @@ t_int_or_neg_as_err	str__find_first_of(t_const_string this,
 						t_const_string charset);
 t_int_or_neg_as_err	str__find_first_not_of(t_const_string this,
 						t_const_string charset);
+t_int_or_neg_as_err	str__find_last_of(t_const_string this,
+						t_const_string charset);
+t_int_or_neg_as_err	str__find_last_not_of(t_const_string this,
+						t_const_string charset);
 /*
 ** < index.c > */
 
@@ -61,6 +65,13 @@ t_string			str__new_substr(t_const_string this, t_uint start,
 
 t_int_or_neg_as_err	str__count_of(t_const_string str, t_const_string other);
 t_string			*str__new_split(t_const_string str, t_const_string delim);
+/*
+** < strip.c > */
+
+void				str__lstrip(t_string *this, t_const_string charset);
+void				str__rstrip(t_string *this, t_const_string charset);
+void				str__strip(t_string *this, t_const_string charset);
+void				str__strip__spaces(t_string *this);
 /*
 ** < util.c > */
 
