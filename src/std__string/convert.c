@@ -37,7 +37,7 @@ t_int_res	str__to_int(t_const_string str)
 	sign = 1;
 	if (!str)
 		return ((t_int_res){ERR, 0});
-	i = str__find_first_not_of(str, " \t\n\v\f\r");
+	i = str__find_first_not_of(str, STD__SPACES);
 	if (i == ERR)
 		return ((t_int_res){ERR, 0});
 	if (str__is_in("-+", str[i]))
@@ -49,7 +49,7 @@ t_int_res	str__to_int(t_const_string str)
 		if ((sign == 1 and num > INT_MAX) or (sign == -1 and num > INT_MIN_ABS))
 			return ((t_int_res){ERR, 0});
 	}
-	if (str[str__find_first_not_of(str + i, " \t\n\v\f\r")] == '\0')
+	if (str[str__find_first_not_of(str + i, STD__SPACES)] == '\0')
 		return ((t_int_res){OK, sign * num});
 	return ((t_int_res){ERR, ERR});
 }

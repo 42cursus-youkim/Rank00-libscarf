@@ -21,8 +21,3 @@ void	str__strip(t_string *this, t_const_string charset)
 	str__lstrip(this, charset);
 	str__rstrip(this, charset);
 }
-
-void	str__strip__spaces(t_string *this)
-{
-	str__strip(this, " \t\n\r");
-}

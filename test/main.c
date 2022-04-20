@@ -11,9 +11,13 @@
 // #include "theft.h"
 
 int main() {
-	t_string str = str__new("     abc de	   ");
-	str__strip__spaces(&str);
-	assert(str__is_equal(str, "abc de"));
+	assert(atoi("     123	   ") == 123);
+	assert(str__to_int("     123	   ").err == OK);
+	assert(str__to_int("     123").err == OK);
+	assert(str__to_int("     123 a").err == ERR);
+	assert(str__to_int("     123     a").err == ERR);
+	// str__strip__spaces(&str);
+	// assert(str__is_equal(str, "abc de"));
 	// t_string a = str__new_substr(str, 0, 3);
 	// t_string b = str__new_substr(str, 3, -1);
 	// printf("a: %s\n", a);

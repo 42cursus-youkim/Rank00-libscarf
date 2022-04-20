@@ -1,4 +1,5 @@
 #include "std__math.h"
+#include "std__string.h"
 
 bool	is_upper(char c)
 {
@@ -22,5 +23,5 @@ bool	is_alnum(char c)
 
 bool	is_whitespace(char c)
 {
-	return (c == ' ' || c == '\t');
+	return (str__is_in(STD__SPACES, c));
 }

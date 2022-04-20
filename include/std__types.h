@@ -6,6 +6,8 @@
 # include <stddef.h>
 # include <stdint.h>
 
+# define STD__SPACES " \t\n\v\f\r"
+
 typedef int8_t		t_i8;
 typedef int16_t		t_i16;
 typedef int32_t		t_i32;
