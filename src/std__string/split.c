@@ -64,6 +64,7 @@ t_string	*str__new_split(t_const_string str, t_const_string delim)
 		std__panic__value("str__split", "empty separator");
 	arr_i = -1;
 	arr = std__allocate(str__count_of(str, delim) + 1, sizeof(t_string));
+	start = 0;
 	end = str__find(str, delim);
 	while (end != ERR)
 	{
