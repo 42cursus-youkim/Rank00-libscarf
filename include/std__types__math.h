@@ -17,6 +17,12 @@ typedef struct s_ivec
 	int		y;
 }			t_ivec;
 
+typedef struct s_i64vec
+{
+	t_i64	x;
+	t_i64	y;
+}	t_i64vec;
+
 typedef struct s_irange
 {
 	int		start;
