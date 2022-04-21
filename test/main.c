@@ -11,11 +11,8 @@
 // #include "theft.h"
 
 int main() {
-	assert(atoi("     123	   ") == 123);
-	assert(str__to_int("     123	   ").err == OK);
-	assert(str__to_int("     123").err == OK);
-	assert(str__to_int("     123 a").err == ERR);
-	assert(str__to_int("     123     a").err == ERR);
+	str__new_split("he\nllo\nwo\nrld", "\n");
+	str__new_split("he\nllo\nwo\nrld\0", "!");
 	// str__strip__spaces(&str);
 	// assert(str__is_equal(str, "abc de"));
 	// t_string a = str__new_substr(str, 0, 3);

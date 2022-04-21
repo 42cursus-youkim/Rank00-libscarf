@@ -35,7 +35,7 @@ t_int_or_neg_as_err	str__count_of(t_const_string str, t_const_string other)
 		else
 		{
 			count++;
-			i += find_result + other_len;
+			i = find_result + other_len;
 		}
 	}
 }
@@ -72,6 +72,8 @@ t_string	*str__new_split(t_const_string str, t_const_string delim)
 		start = end + str__len(delim);
 		end = str__find_from(str, delim, start);
 	}
-	arr[++arr_i] = str__new_substr(str, start, str__len(str));
+	arr[++arr_i] = str__new_substr(str, start, -1);
+	printf("arr_i: %d\n", arr_i);
+	printf("array length: %d\n", str__count_of(str, delim) + 1);
 	return (arr);
 }
