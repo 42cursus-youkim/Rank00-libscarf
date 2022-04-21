@@ -73,7 +73,5 @@ t_string	*str__new_split(t_const_string str, t_const_string delim)
 		end = str__find_from(str, delim, start);
 	}
 	arr[++arr_i] = str__new_substr(str, start, -1);
-	printf("arr_i: %d\n", arr_i);
-	printf("array length: %d\n", str__count_of(str, delim) + 1);
 	return (arr);
 }
