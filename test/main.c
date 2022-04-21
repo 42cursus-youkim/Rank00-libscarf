@@ -13,5 +13,6 @@
 int main() {
 	t_string_arr arr = str__new__arr(3, (t_string[]){"a", "b", "c"});
 	str__delete__arr(&arr);
+	std__panic__value__char("!!!", 'a');
 	printf("DONE.\n");
 }

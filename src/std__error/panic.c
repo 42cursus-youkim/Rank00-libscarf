@@ -3,8 +3,8 @@
 #include "std__system.h"
 #include <errno.h>
 #include <stdlib.h>
-#include <string.h>
 #include <unistd.h>
+#include <string.h>
 
 void	std__panic_write_internal(t_const_string arr[])
 {
@@ -42,12 +42,5 @@ void	std__panic(t_const_string what)
 void	std__panic__null(t_const_string where)
 {
 	std__panic_write_internal((t_const_string[]){where, " is NULL", NULL});
-	exit(EXIT_FAILURE);
-}
-
-void	std__panic__value(t_const_string where, t_const_string what)
-{
-	std__panic_write_internal(
-		(t_const_string[]){where, " value error", what, NULL});
 	exit(EXIT_FAILURE);
 }
