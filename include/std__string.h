@@ -10,9 +10,9 @@
 ** < alloc.c > */
 
 t_string			str__new(t_const_string from);
-t_string			str__new_size(t_uint size);
 t_string			str__new_move(t_string *other);
-void				str__delete(t_string *this_ptr);
+t_string			str__new_size(t_uint size);
+t_string_arr		str__new__arr(t_uint size, t_string from[]);
 /*
 ** < append.c > */
 
@@ -28,6 +28,11 @@ bool				str__is_equal(t_const_string s1, t_const_string s2);
 
 t_string			str__new_from_int(int num);
 t_int_res			str__to_int(t_const_string str);
+/*
+** < dealloc.c > */
+
+void				str__delete(t_string *this);
+void				str__delete__arr(t_string_arr *arr_ptr);
 /*
 ** < find.c > */
 
@@ -56,6 +61,12 @@ bool				str__is_in(t_const_string this, char c);
 t_int_or_neg_as_err	str__len(t_const_string this);
 t_int_or_neg_as_err	str__len__arr(t_string arr[]);
 /*
+** < move.c > */
+
+void				str__move(t_string *this, t_string *other);
+void				str__replace(t_string *this, t_string other);
+void				str__merge(t_string *this, t_string *other);
+/*
 ** < slice.c > */
 
 t_string			str__new_substr(t_const_string this, t_uint start,
@@ -75,7 +86,4 @@ void				str__strip(t_string *this, t_const_string charset);
 ** < util.c > */
 
 bool				str__is_empty(t_const_string this);
-void				str__replace(t_string *this, t_string other);
-void				str__move(t_string *this, t_string *other);
-void				str__merge(t_string *this, t_string *other);
 #endif

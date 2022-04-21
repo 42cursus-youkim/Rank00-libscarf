@@ -22,20 +22,6 @@ t_string	str__new(t_const_string from)
 }
 
 /**
- * @brief create a uninitialized string of given length.
- *
- * @param size
- * @return t_string
- */
-t_string	str__new_size(t_uint size)
-{
-	t_string	new;
-
-	new = std__calloc(size, sizeof(char));
-	return (new);
-}
-
-/**
  * @brief create a new string by moving other. other is freed.
  *
  * @param this
@@ -51,11 +37,27 @@ t_string	str__new_move(t_string *other)
 }
 
 /**
- * @brief deletes a string and set it to NULL.
+ * @brief create a uninitialized string of given length.
  *
- * @param this the string to delete.
+ * @param size
+ * @return t_string
  */
-void	str__delete(t_string *this_ptr)
+t_string	str__new_size(t_uint size)
 {
-	std__dealloc((void **)this_ptr);
+	t_string	new;
+
+	new = std__calloc(size, sizeof(char));
+	return (new);
+}
+
+t_string_arr	str__new__arr(t_uint size, t_string from[])
+{
+	t_i64			i;
+	t_string_arr	new_arr;
+
+	new_arr = std__calloc(size, sizeof(t_string));
+	i = -1;
+	while (++i < size)
+		new_arr[i] = str__new(from[i]);
+	return (new_arr);
 }

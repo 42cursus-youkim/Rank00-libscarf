@@ -23,6 +23,7 @@ typedef uint64_t	t_u64;
  *  string's max length could be INT_MAX - 1 (1 for NULL) */
 typedef char*		t_string;
 typedef const char*	t_const_string;
+typedef t_string*	t_string_arr;
 
 typedef int			t_rgb;
 
