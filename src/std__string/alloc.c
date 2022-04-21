@@ -50,6 +50,18 @@ t_string	str__new_size(t_uint size)
 	return (new);
 }
 
+t_string	str__new_char(t_uint size, char c)
+{
+	t_i64		i;
+	t_string	new;
+
+	new = str__new_size(size);
+	i = -1;
+	while (++i < size)
+		new[i] = c;
+	return (new);
+}
+
 t_string_arr	str__new__arr(t_uint size, t_string from[])
 {
 	t_i64			i;

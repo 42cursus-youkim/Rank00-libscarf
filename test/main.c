@@ -11,8 +11,10 @@
 // #include "theft.h"
 
 int main() {
-	t_string_arr arr = str__new__arr(3, (t_string[]){"a", "b", "c"});
-	str__delete__arr(&arr);
-	std__panic__value__char("!!!", 'a');
+	t_string str = str__new("hello");
+	str__pad_right(&str, 3, '!');
+	str__pad_left(&str, 3, '!');
+	printf("[%s]\n", str);
+	str__delete(&str);
 	printf("DONE.\n");
 }

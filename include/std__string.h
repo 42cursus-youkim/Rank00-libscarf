@@ -12,6 +12,7 @@
 t_string			str__new(t_const_string from);
 t_string			str__new_move(t_string *other);
 t_string			str__new_size(t_uint size);
+t_string			str__new_char(t_uint size, char c);
 t_string_arr		str__new__arr(t_uint size, t_string from[]);
 /*
 ** < append.c > */
@@ -66,6 +67,7 @@ t_int_or_neg_as_err	str__len__arr(t_string arr[]);
 void				str__move(t_string *this, t_string *other);
 void				str__replace(t_string *this, t_string other);
 void				str__merge(t_string *this, t_string *other);
+void				str__swap(t_string *this, t_string *other);
 /*
 ** < slice.c > */
 
@@ -86,4 +88,6 @@ void				str__strip(t_string *this, t_const_string charset);
 ** < util.c > */
 
 bool				str__is_empty(t_const_string this);
+void				str__pad_right(t_string *this, t_uint len, char c);
+void				str__pad_left(t_string *this, t_uint len, char c);
 #endif

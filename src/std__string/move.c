@@ -28,3 +28,12 @@ void	str__merge(t_string *this, t_string *other)
 	str__append(this, *other);
 	str__delete(other);
 }
+
+void	str__swap(t_string *this, t_string *other)
+{
+	t_string	tmp;
+
+	tmp = *this;
+	*this = *other;
+	*other = tmp;
+}
