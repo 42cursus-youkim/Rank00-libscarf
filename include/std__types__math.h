@@ -4,6 +4,7 @@
 # include "std__types.h"
 
 # define INT_MIN_ABS 2147483648
+# define STD__PI 3.14159265358979323846
 
 typedef struct s_vec
 {
