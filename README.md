@@ -11,5 +11,8 @@
 
 - easy memory allocation notation
 - modular packages
+- string library
+<!--
 - hashmap/dict
 - linked list and deques
+-->
