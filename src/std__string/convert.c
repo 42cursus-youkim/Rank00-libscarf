@@ -13,7 +13,7 @@ t_string	str__new_from_int(int num)
 	digit = math__digit_len(num);
 	if (num < 0)
 		digit++;
-	str = std__allocate(sizeof(char), digit);
+	str = std__allocate(digit, sizeof(char));
 	if (num < 0)
 	{
 		num = -num;
